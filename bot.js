@@ -164,6 +164,8 @@ client.on('message', msg => {
     msg.reply('بلغ مسؤول التشهير!');
   }
 });
+const Discord = require("discord.js");
+const client = new Discord.Client();
 const client2 = new Discord.Client();
 const myid = ['639105286266683392'];
 const prefix = ['$'];
@@ -289,6 +291,5 @@ if (!rank) return message.reply(' ')
     message.delete();
   }
 });
-
 
 client.login(process.env.BOT_TOKEN);
