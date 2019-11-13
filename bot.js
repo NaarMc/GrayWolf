@@ -297,7 +297,7 @@ if(credits[message.author.id].daily != moment().format('L')) {
  
  
  
-});
+});//LuXy
 
 
 client.login(process.env.BOT_TOKEN);
