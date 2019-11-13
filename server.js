@@ -1,3 +1,7 @@
+const Discord = require('discord.js');
+const client = new Discord.Client();
+const prefix = "$"
+
 
 const http = require('http');
 const express = require('express');
@@ -291,4 +295,4 @@ if (!profile[getvalueof.id]) profile[getvalueof.id] = {points: 0,reps: "NOT YET"
 });
 
 
-client.login('');
+client.login(process.env.BOT_TOKEN);
