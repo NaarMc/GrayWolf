@@ -158,15 +158,6 @@ client.on('message', msg => {
     msg.reply('بلغ مسؤول التشهير!');
   }
 });
-{
-     "1": {
-          "credits": 50
-     },
-     "ID": {
-          "credits": 999999888489,
-          "daily": "06/18/2019"
-     }
-}
 
 
 client.login(process.env.BOT_TOKEN);
