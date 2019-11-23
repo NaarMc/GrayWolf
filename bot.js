@@ -158,6 +158,20 @@ client.on('message', msg => {
     msg.reply('بلغ مسؤول التشهير!');
   }
 });
+  client.on("message", message => {
+    if (message.content === "هلا") {
+     const embed = new Discord.RichEmbed()
+         .setColor("#00FF00")
+         .setThumbnail(message.author.avatarURL)
+         .setDescription(`**Help|هيلب
+       $invites | لمعرفة عدد انفايتاتك
+       $new | لإنشاء تكت
+       $giveaway  |  لإعداد قيفاواي
+       ** `)
+   message.author.sendEmbed(embed)
+   
+   }
+   });
 
 
 client.login(process.env.BOT_TOKEN);
