@@ -159,14 +159,14 @@ client.on('message', msg => {
   }
 });
   client.on("message", message => {
-    if (message.content === "هلا") {
+    if (message.content === "رتب") {
      const embed = new Discord.RichEmbed()
          .setColor("#00FF00")
          .setThumbnail(message.author.avatarURL)
-         .setDescription(`**Help|هيلب
-       $invites | لمعرفة عدد انفايتاتك
-       $new | لإنشاء تكت
-       $giveaway  |  لإعداد قيفاواي
+         .setDescription(`**ranks|رتب
+       Legend | 30k
+       Diamond | 20k
+       Gold  |  10k
        ** `)
    message.author.sendEmbed(embed)
    
