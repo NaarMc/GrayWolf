@@ -172,6 +172,9 @@ client.on('message', msg => {
    
    }
    });
-
+client.on('message', msg => {
+    if(msg.content === 'رتب')
+    msg.reply('تم الارسال في الخاص')
+  });
 
 client.login(process.env.BOT_TOKEN);
