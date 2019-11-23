@@ -176,5 +176,22 @@ client.on('message', msg => {
     if(msg.content === 'رتب')
     msg.reply('تم الارسال في الخاص')
   });
+  client.on("message", message => {
+    if (message.content === "ip") {
+     const embed = new Discord.RichEmbed()
+         .setColor("#00FF00")
+         .setThumbnail(message.author.avatarURL)
+         .setDescription(`**IP is
+Play.FireMc.mymc.cf       ** `)
+   message.author.sendEmbed(embed)
+   
+   }
+   });
+client.on('message', msg => {
+    if(msg.content === 'ip')
+    msg.reply('تم الارسال في الخاص')
+  });
+
+
 
 client.login(process.env.BOT_TOKEN);
