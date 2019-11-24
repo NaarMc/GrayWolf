@@ -193,24 +193,6 @@ client.on('message', msg => {
   });
 
 
-client.on('message', message => {
-    var p = message.mentions.members.first();
-    var reason = message.content.split(" ").slice(2).join(' ');
-    var log = message.guild.channels.find('name', 'ban-log');
-    if(message.content.startsWith(`${prefix}ban`)){
-        if(!p) return message.reply(`**منشن الشخص**`);
-        var embed = new Discord.RichEmbed()
-        .setAuthor(`User Banned!`)
-        .addField(`Name ♣`, `<@${p.id}>`)
-        .addField(`By ♣`, `<@${message.author.id}>`)
-        .setTimestamp()
-        .setColor("BLACK")
-        .setFooter(` `)
-        p.ban();
-            message.delete();
-        log.send({embed});
-        banRoles = ['Only Me']
-    }
-});
+
 
 client.login(process.env.BOT_TOKEN);
