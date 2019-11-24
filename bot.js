@@ -478,11 +478,4 @@ client.on("message", message => {
 }
         });
 
-if (message.content.startsWith(adminprefix + 'setava')) {
-  client.user.setAvatar(argresult);
-    message.channel.send(`Changing The Avatar To :**${argresult}** `);
-}
-});   
-
-
 client.login(process.env.BOT_TOKEN);
