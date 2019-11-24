@@ -483,9 +483,6 @@ if (message.content.startsWith(adminprefix + 'setava')) {
     message.channel.send(`Changing The Avatar To :**${argresult}** `);
 }
 });   
-  if (message.content.startsWith(adminprefix + 'setname')) {
-  client.user.setUsername(argresult).then
-      message.channel.send(`Changing The Name To ..**${argresult}** `)
-} else
+
 
 client.login(process.env.BOT_TOKEN);
