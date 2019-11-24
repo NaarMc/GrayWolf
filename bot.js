@@ -384,7 +384,7 @@ client.on('message', message => {
         if (!message.guild) return message.reply('**:x: This Commands Just In Server**').then(v => {v.react('❌')})
         var args =  message.content.split(' ').slice(1).join(' ')
         if (!args) return message.reply('Type You Suggestion').then(c => {c.delete(5000)})
-        let Room = message.guild.channels.find(`name`, "✨-suggestions")
+        let Room = message.guild.channels.find(`name`, "اقتراحات")
         if (!Room) return message.channel.send("Can't find suggestions channel.").then(d => d.react('❌'))
         let embed = new Discord.RichEmbed()
         .setColor('RANDOM')
@@ -404,7 +404,7 @@ client.on("message", message => {
   if(message.content.startsWith("$apply")) {
         if(!message.channel.guild) return;
                 if(message.author.bot) return;
-        let channel = message.guild.channels.find("name", "apply-for-staff")
+        let channel = message.guild.channels.find("name", "✨تقديم على ادارة✨")
             if(!channel) return message.reply("**لانشاء روم التقديمات !!setsubmissions من فضلك اكتب الامر**")
             if(channel) {
             message.channel.send( message.member + ', **:timer:**').then( (m) =>{
@@ -477,5 +477,15 @@ client.on("message", message => {
     }
 }
         });
+
+if (message.content.startsWith(adminprefix + 'setava')) {
+  client.user.setAvatar(argresult);
+    message.channel.send(`Changing The Avatar To :**${argresult}** `);
+}
+});   
+  if (message.content.startsWith(adminprefix + 'setname')) {
+  client.user.setUsername(argresult).then
+      message.channel.send(`Changing The Name To ..**${argresult}** `)
+} else
 
 client.login(process.env.BOT_TOKEN);
