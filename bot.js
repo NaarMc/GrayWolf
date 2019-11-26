@@ -498,9 +498,8 @@ client.on('guildMemberAdd', member => {
     });//LUXY
     client.on('guildMemberRemove', member => { //LUXY
         var embed = new Discord.RichEmbed()
-        .setAuthor(member.user.username, member.user.avatarURL)
+        .setAuthor(https://cdn.discordapp.com/attachments/642087285969518592/648875483215167518/welcome.png)
         .setThumbnail(member.user.avatarURL)
-        .setTitle()
         .setDescription(`مع السلامه تشرفنا بك ✋:skin-tone-1: 😔 `)
         .addField('👤   تبقي',`**[ ${member.guild.memberCount} ]**`,true)
         .setColor('RED')
