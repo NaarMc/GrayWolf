@@ -484,9 +484,7 @@ client.on('guildMemberAdd', member => {
     let embed = new Discord.RichEmbed()
         .setColor('RANDOM')
         .setThumbnail(memberavatar)
-        .addField('🎽 | name :  ',`${member}`)
         .addField('📢 | نورت السيرفر يا قلبي' , `Welcome to the server, ${member}`)
-        .addField('🆔 | user :', "**[" + `${member.id}` + "]**" )
                 .addField('➡| انت العضو رقم',`${member.guild.memberCount}`)
                
                   .addField("Name:",`<@` + `${member.id}` + `>`, true)
@@ -500,9 +498,9 @@ client.on('guildMemberAdd', member => {
     });//LUXY
     client.on('guildMemberRemove', member => { //LUXY
         var embed = new Discord.RichEmbed()
-        .setAuthor(                    member.user.avatarURL)
+        .setAuthor(member.user.username, member.user.avatarURL)
         .setThumbnail(member.user.avatarURL)
-        .setTitle(``)
+        .setTitle()
         .setDescription(`مع السلامه تشرفنا بك ✋:skin-tone-1: 😔 `)
         .addField('👤   تبقي',`**[ ${member.guild.memberCount} ]**`,true)
         .setColor('RED')
