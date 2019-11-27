@@ -917,6 +917,91 @@ if(!message.guild.member(client.user).hasPermission("MANAGE_MESSAGES")) return m
   }
 
 });
+client.on('message', message => { 
+                                if(!message.channel.guild) return;
+                        if (message.content.startsWith(prefix + 'ping')) {
+                            if(!message.channel.guild) return;
+                            var msg = `${Date.now() - message.createdTimestamp}`
+                            var api = `${Math.round(client.ping)}`
+                            if (message.author.bot) return;
+                        let embed = new Discord.RichEmbed()
+                        .setAuthor(message.author.username,message.author.avatarURL)
+                        .setColor('#5016f3')
+                        .addField('**Time Taken:**',msg + " ms :signal_strength: ")
+                        .addField('**WebSocket:**',api + " ms :signal_strength: ")
+                        .setTimestamp()
+        message.channel.send({embed:embed});
+                        }
+                    });
+
+	client.on('message', message => {
+    if(message.content.includes('discord.gg/')) {
+        if(message.member.hasPermission('ADMINISTRATOR')) return;
+        message.delete();
+        message.guild.member(message.author).addRole(message.guild.roles.find(r => r.name === 'Muted'));
+        let embedP = new Discord.RichEmbed()
+        .setTitle('❌ | تمت معاقبتك')
+        .setAuthor(message.author.username, message.author.avatarURL)
+        .addField(`** لقد قمت بمخالفة قوانين السيرفر من خلال نشر روابط اضافة الى سيرفرات اخرى  **` , `**ملاحظة  : إن كآن هذآ الاسكات عن طريق الخطأ الرجاء التوجه والتكلم مع الادآرة**`)
+        .addField(`by`,`LegendSystem. `)
+        .setColor('RED')
+        .setThumbnail(message.author.avatarURL)
+        .setFooter(`${message.guild.name} Server`, message.guild.iconURL)
+        
+        message.channel.send(embedP);
+    }
+});
+
+
+
+client.on('message', message => {
+var prefix = "-";
+       if(message.content === prefix + "mutechannel") {
+                           if(!message.channel.guild) return message.reply('** This command only for servers**');
+
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **__ليس لديك صلاحيات__**');
+              message.channel.overwritePermissions(message.guild.id, {
+            SEND_MESSAGES: false
+
+              }).then(() => {
+                  message.reply("**__تم تقفيل الشات__ ✅ **")
+              });
+                }
+
+    if(message.content === prefix + "unmutechannel") {
+                        if(!message.channel.guild) return message.reply('** This command only for servers**');
+
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**__ليس لديك صلاحيات__**');
+              message.channel.overwritePermissions(message.guild.id, {
+            SEND_MESSAGES: true
+
+              }).then(() => {
+                  message.reply("**__تم فتح الشات__✅**")
+              });
+    }
+       
+});
+client.on("message", message => { 
+              var args = message.content.substring(prefix.length).split(" ");
+              if (message.content.startsWith(prefix + "clear")) {
+                  if(!message.channel.guild) return message.reply('**❌ اسف لكن هذا الامر للسيرفرات فقط **');         
+     if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**⚠  لا يوجد لديك صلاحية لمسح الشات**');
+          var msg;
+          msg = parseInt();
+        
+        message.channel.fetchMessages({limit: msg}).then(messages => message.channel.bulkDelete(messages)).catch(console.error);
+        message.channel.sendMessage("", {embed: {
+          title: "تــم مسح الشات",
+          color: 0x5016f3, 
+          footer: {
+            
+          }
+        }}).then(msg => {msg.delete(3000)});
+                            }
+  
+       
+  });
+
 
 
 
