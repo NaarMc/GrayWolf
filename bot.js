@@ -1032,6 +1032,82 @@ client.on('message', PuP => {
        }
 
        });
+client.on("guildMemberAdd", member => {
+  member.createDM().then(function (channel) {
+  return channel.send(`:rose:  ولكم نورت السيرفر:rose: 
+:crown:اسم العضو  ${member}:crown:  
+انت العضو رقم ${member.guild.memberCount} `) 
+}).catch(console.error)
+})
+client.on("message", message => {
+    const prefix = "-"
+              
+          if(!message.channel.guild) return;
+   if(message.author.bot) return;
+      if(message.content === prefix + "savatar"){
+          const embed = new Discord.RichEmbed()
+  
+      .setTitle(`ServerAvatar${message.guild.name} **  `)
+  .setAuthor(message.author.username, message.guild.iconrURL)
+    .setColor(0x164fe3)
+    .setImage(message.guild.iconURL)
+    .setURL(message.guild.iconrURL)
+                    .setTimestamp()
+
+   message.channel.send({embed});
+      }
+  });
+client.on('message', message => {
+              if (!message.channel.guild) return;
+      if(message.content =='-count')
+      var IzRo = new Discord.RichEmbed()
+      .setThumbnail(message.author.avatarURL)
+      .setFooter(message.author.username, message.author.avatarURL)
+      .setTitle('🌍| Members info')
+      .addBlankField(true)
+      .addField('Mmeber Count',`${message.guild.memberCount}`)
+      message.channel.send(IzRo);
+    });
+client.on('message', msg => {
+  if (msg.author.bot) return;
+  if (!msg.content.startsWith(prefix)) return;
+  let command = msg.content.split(" ")[0];
+  command = command.slice(prefix.length);
+  let args = msg.content.split(" ").slice(1);
+
+    if(command === "مسح") {
+        const emoji = client.emojis.find("name", "wastebasket")
+    let textxt = args.slice(0).join("");
+    if(msg.member.hasPermission("MANAGE_MESSAGES")) {
+    if (textxt == "") {
+        msg.delete().then
+    msg.channel.send("***```ضع عدد الرسائل التي تريد مسحها 👌```***").then(m => m.delete(3000));
+} else {
+    msg.delete().then
+    msg.delete().then
+    msg.channel.bulkDelete(textxt);
+        msg.channel.send("```php\nعدد الرسائل التي تم مسحها: " + textxt + "\n```").then(m => m.delete(3000));
+        }    
+    }
+}
+});
+client.on('message', message => {
+if (message.content.startsWith(prefix+"ct")) {
+    var args = message.content.split(" ").slice(1);
+    var argrst = args.join(' ');
+                message.guild.createChannel(`${argrst}`, 'text')
+      }
+});
+
+client.on('message', message => {
+if (message.content.startsWith(prefix+"cv")) {
+    var args = message.content.split(" ").slice(1);
+    var argrst = args.join(' ');
+                message.guild.createChannel(`${argrst}`,'voice')
+         
+        }
+});
+
 
 
 
