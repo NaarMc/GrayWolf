@@ -28,31 +28,11 @@ client.on('ready', () => {
   console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=')
   console.log(`channels! [ " ${client.channels.size} " ]`);
   console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=')
-  client.user.setGame(`${prefix}help-br`)
+  client.user.setGame(`https://discord.gg/ee9EvdF`)
 });
 
 
-client.on('message', message => {
-    let messageArray = message.content.split(" ");
-    
-    let command = messageArray[0];
-    
-    
-    if (command === `${prefix}help-br`) {
-			let embed = new Discord.RichEmbed()
-                .setColor('RANDOM')
-                .addField('     **=-=-:: [ Narox ] ::-=-=** ' ,'╔[❖═════════════════════❖]╗')
-				.addField(`**${prefix}bc1 | رسالة جماعية لجميع الاعضاء**'` ,'**=-=-=-=-=-=-=-=-=-=-=**')
-				.addField(`**${prefix}bc2 | رسالة جماعية للاونلاين فقط**` ,'**=-=-=-=-=-=-=-=-=-=-=**')
-				.addField(`**${prefix}bc3 | رسالة جماعية للوفلاين فقط**` ,'**=-=-=-=-=-=-=-=-=-=-=**')
-				.addField(`**${prefix}bcrole | رسالة جماعية لرتبة معينه**` ,'**=-=-=-=-=-=-=-=-=-=-=**')
-                .addField('=-=- [ شكرا على استعمال البوت ] -=-= ' ,'╚[❖═════════════════════❖]╝')
-                .setFooter(`By MARSHMELLO`)
-                .setTimestamp()
-			
-                message.author.sendEmbed(embed)
-	}
-});
+
 
 
  client.on("message", message => {//bc1
