@@ -1019,7 +1019,19 @@ client.on('message' , message => {
         message.channel.sendEmbed(embed)
     }
 });
+client.on('message', PuP => {
+  let args = PuP.content.split(" ").slice(1).join(" ")
+  if (PuP.content.startsWith(`${prefix}sr`)) {
+                if (!PuP.member.hasPermission("MANAGE_SERVER"))  return;
+                if(!args) return PuP.channel.send('`**يرجي ادخال اسم السرفر الجديد**`');
+                PuP.guild.owner.send(`**ى تغيير اسم السرفر الي ${args}
+                بواسطة : <@${PuP.author.id}>**`)
+                PuP.guild.setName(args)
+                PuP.channel.send(`**تم تغير اسم السيرفر الي : __${args}__ **`);
+                
+       }
 
+       });
 
 
 
