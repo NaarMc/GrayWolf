@@ -524,17 +524,7 @@ client.on('message', function(msg) {
     msg.channel.send({embed:embed});
   }
 });
-client.on('message', message => {
-	var prefix = "-";
-if (message.content.startsWith(prefix + 'tag')) {
-    let args = message.content.split(" ").slice(1);
-if(!args[0]) return message.reply('Write Some Things');  
 
-    figlet(args.join(" "), (err, data) => {
-              message.channel.send("```" + data + "```")
-           })
-}
-});
 
 
 client.login(process.env.BOT_TOKEN);
