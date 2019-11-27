@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = "$";
+const prefix = "#";
 
 
 console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=')
@@ -478,7 +478,7 @@ client.on("message", message => {
 }
         });
 client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', 'الشات-العام');
+    let channel = member.guild.channels.find('name', 'ۛۛا̍ڷــڜــٰا̍ٺ-ا̍ڷــ؏ــٰٱ̍مۘ');
     let memberavatar = member.user.avatarURL
       if (!channel) return;
     let embed = new Discord.RichEmbed()
@@ -505,7 +505,7 @@ client.on('guildMemberAdd', member => {
         .setColor('RED')
         .setFooter(`==== نــتــمــنــآ لــكــم آســتــمـــتــآع ====`, 'https://cdn.discordapp.com/attachments/397818254439219217/399292026782351381/shy.png')
    
-    var channel =member.guild.channels.find('name', 'الشات-العام')
+    var channel =member.guild.channels.find('name', 'ۛا̍ڷــڜــٰا̍ٺ-ا̍ڷــ؏ــٰٱ̍مۘ')
     if (!channel) return;
     channel.send({embed : embed});//LUXY
     })
