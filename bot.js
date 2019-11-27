@@ -1107,6 +1107,187 @@ if (message.content.startsWith(prefix+"cv")) {
          
         }
 });
+client.on('message', message => {
+    if (message.content == "-فكك") {
+        var x = ["محمد",
+"مدرسة",
+"بيت",
+"الله",
+"بيت مقدس",
+"مهندس",
+"ريضيات",
+"بسم الله رحمن رحيم",
+"طماطم",
+"سيرفر",
+];
+        var x2 = ['م ح م ح',
+        "م د ر س ة",
+        "ب ي ت ",
+        "ا ل ل ه",
+"ب ي ت م ق د س",
+"م ه ن د س",
+"ر ي ض ي ا ت",
+"ب س م ا ل ل ه ر ح م ن ر ح ي م",
+"ط م ا ط م",
+"س ي ر ف ر",
+     ];
+        
+        var x3 = Math.floor(Math.random()*x.length)
+        message.channel.send(`  فكك
+ :  __**${x[x3]}**__
+لديك 20 ثانية`).then(msg1=> {
+            var r = message.channel.awaitMessages(msg => msg.content == x2[x3], {
+                maxMatches : 1,
+                time : 20000,
+                errors : ['time']
+            })
+        r.catch(() => {
+            return message.channel.send(`:negative_squared_cross_mark: لقد انتهى الوقت ولم يقم أحد بالأجابة بشكل صحيح 
+            الإجآبة الصحيحةة هي __**${x2[x3]}**__`)
+        })
+        
+        r.then((collected)=> {
+            message.channel.send(`${collected.first().author}لقد قمت بتفكيك كلمة في وقت مناسب`);
+        })
+        })
+    }
+})
+
+client.on('message', message => {
+if(message.content.startsWith("-فواكه")) {
+  let slot1 = ['🍏', '🍇', '🍒', '🍍', '🍅', '🍆', '🍑', '🍓'];
+  let slots1 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
+  let slots2 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
+  let slots3 = `${slot1[Math.floor(Math.random() * slot1.length)]}`;
+  let we;
+  if(slots1 === slots2 && slots2 === slots3) {
+    we = "Win!"
+  } else {
+    we = "Lose!"
+  }
+  message.channel.send(`${slots1} | ${slots2} | ${slots3} - ${we}`)
+}
+});
+
+client.on('message', message => {
+    if (message.content == "-عواصم"){
+        var x = ["ما عاصمة **المغرب**",
+    "ما عاصمة **افغانستان**",
+    "ما عاصمة **الجزائر **",
+    "ما عاصمة **الارجنتين",
+    "ما عاصمة ** مصر**",
+    "ما عاصمة ** استراليا**",
+    "ما عاصمة ** البرازيل**",
+    "ما عاصمة **قطر  **",
+    "ما عاصمة **السعودية  **",
+    "ما عاصمة **سوريا  **",
+    "ما عاصمة **تركيا  **",
+    "ما عاصمة **العراق  **",
+    "ما عاصمة **لبنان  **",
+    "ما عاصمة **فلسطين  **",
+    "ما عاصمة **امريكا  **",
+   "ما عاصمة **كندا  **",
+   "ما عاصمة **البرازيل  **",
+];
+        var x2 = ['الرباط',
+        "كابل",
+        "الجزائر",
+      "بوينس ايرس",
+"القاهرة",
+"كانبرا",
+"برازيليا",
+"الدوحة",
+      "الرياض",
+      "دمشق",
+      "انقرة",
+    "بغداد",
+      "بيروت",
+    "القدس",
+  "وشنطن",
+    "اوتاوا",
+  "برازيليا",
+  
+        
+        ];
+        
+        var x3 = Math.floor(Math.random()*x.length)
+        message.channel.send(` اول شخص يكتب عاصمة صح :  __**${x[x3]}**__
+لديك 20 ثانية لكتابة عاصمة صحيحة`).then(msg1=> {
+            var r = message.channel.awaitMessages(msg => msg.content == x2[x3], {
+                maxMatches : 1,
+                time : 20000,
+                errors : ['time']
+            })
+        r.catch(() => {
+            return message.channel.send(`:negative_squared_cross_mark: لقد انتهى الوقت ولم يقم أحد بالأجابة بشكل صحيح 
+            الإجآبة الصحيحةة هي __**${x2[x3]}**__`)
+        })
+        
+        r.then((collected)=> {
+            message.channel.send(`${collected.first().author}لقد قمت بكتابة عاصمة صح في الوقت المناسب  `);
+        })
+        })
+    }
+})
+
+ client.on("message", async message => {
+            if(!message.channel.guild) return;
+        if(message.content.startsWith(prefix + 'Minv')) {
+        var nul = 0
+        var guild = message.guild
+        await guild.fetchInvites()
+            .then(invites => {
+             invites.forEach(invite => {
+                if (invite.inviter === message.author) {
+                     nul+=invite.uses
+                    }
+                });
+            });
+          if (nul > 0) {
+              console.log(`\n${message.author.tag} has ${nul} invites in ${guild.name}\n`)
+              var embed = new Discord.RichEmbed()
+                  .setColor("#000000")
+                    .addField(`${message.author.username}`, `لقد قمت بدعوة **${nul}** شخص`)
+                          message.channel.send({ embed: embed });
+                      return;
+                    } else {
+                       var embed = new Discord.RichEmbed()
+                        .setColor("#000000")
+                        .addField(`${message.author.username}`, `لم تقم بدعوة أي شخص لهذة السيرفر`)
+
+                       message.channel.send({ embed: embed });
+                        return;
+                    }
+        }
+        if(message.content.startsWith(prefix + 'invite-codes')) {
+let guild = message.guild
+var codes = [""]
+message.channel.send(":postbox: **لقد قمت بأرسال جميع روابط الدعوات التي قمت بأنشائها في الخاص**")
+guild.fetchInvites()
+.then(invites => {
+invites.forEach(invite => {
+if (invite.inviter === message.author) {
+codes.push(`discord.gg/${invite.code}`)
+}
+})
+}).then(m => {
+if (codes.length < 0) {
+    var embed = new Discord.RichEmbed()
+.setColor("#000000")
+.addField(`Your invite codes in ${message.guild.name}`, `You currently don't have any active invites! Please create an invite and start inviting, then you will be able to see your codes here!`)
+message.author.send({ embed: embed });
+return;
+} else {
+    var embed = new Discord.RichEmbed()
+.setColor("#000000")
+.addField(`Your invite codes in ${message.guild.name}`, `Invite Codes:\n${codes.join("\n")}`)
+message.author.send({ embed: embed });
+return;
+}
+})
+}
+
+});
 
 
 
