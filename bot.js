@@ -1786,6 +1786,33 @@ client.on('voiceStateUpdate', (voiceOld, voiceNew) => {
 }); 
 
 
+client.on("message", message => {
+    if (message.content === "-rules") {
+           message.react("✅")
+              message.react("❌")
+     const embed = new Discord.RichEmbed() 
+         .setColor("#ffff00")
+         .setDescription(`
+  ●▬▬▬▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬●
+[ ★・rules   |  قوانين السيرفر  ]
+1) ممنوع السب مع اى سبب 
+2)ممنوع الحديث عن الدين او سبه او مفاوضات دينيه 
+5)ممنوع التحدث عن السياسه  "
+6)ممنوع الصور الاباحيه او اى شي مخل بالادب 
+7)ممنوع نشر صور من  مواقع التواصل الاجتماعى  بحقوق ملكيه
+8)ممنوع طلب الرتبه والرتب تكون بالتفاعل
+9)لاستخدام البوت  فى - #cmd
+__
+
+@everyone || @here
+●▬▬▬▬▬▬▬▬▬▬▬▬▬ஜ۩۞۩ஜ▬▬▬▬▬▬▬▬▬▬▬▬▬●
+  
+    `)
+   
+      message.author.sendEmbed(embed)
+      
+      }
+}); 
 
 
 client.login(process.env.BOT_TOKEN);
