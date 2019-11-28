@@ -1813,6 +1813,58 @@ __
       
       }
 }); 
+client.on('message', msg => {
+                        let args = msg.content.split(" ").slice(1).join(" ")
+if (msg.content.split(" ")[0].toLowerCase() === "-cr") {
+    if(!args) return msg.channel.send('`الرجاء كتابة عدد اللوان المرجى صنعها`');
+             if (!msg.member.hasPermission('MANAGE_ROLES')) return;
+              msg.channel.send(`** Done Colors Was Successful Created ${args}**`);
+                  setInterval(function(){})
+                    let count = 0;
+                    let ecount = 0;
+          for(let x = 1; x < `${parseInt(args)+1}`; x++){
+            msg.guild.createRole({name:x,
+              color: 'RANDOM'})
+              }
+            }
+});
 
+client.on('message', message => {
+          let args = message.content.split(' ').slice(1);
+   if(message.content.split(' ')[0] == '-color'){
+           const embedd = new Discord.RichEmbed()
+     .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+   .setDescription(`**There's No Color With This Number ** :x: `)
+   .setColor(`ff0000`)
+
+    if(!isNaN(args) && args.length > 0)
+    
+
+if    (!(message.guild.roles.find("name",`${args}`))) return  message.channel.sendEmbed(embedd);
+
+
+       var a = message.guild.roles.find("name",`${args}`)
+                if(!a)return;
+const embed = new Discord.RichEmbed()
+                    
+     .setFooter('Requested by '+message.author.username, message.author.avatarURL)
+   .setDescription(`**Color Changed To Successfully** :white_check_mark: `)
+ 
+   .setColor(`${a.hexColor}`)
+  message.channel.sendEmbed(embed);
+          if (!args)return;
+setInterval(function(){})
+                  let count = 0;
+                  let ecount = 0;
+        for(let x = 1; x < 201; x++){
+           
+            message.member.removeRole(message.guild.roles.find("name",`${x}`))
+          
+            }
+                message.member.addRole(message.guild.roles.find("name",`${args}`));
+        
+            
+    }
+});
 
 client.login(process.env.BOT_TOKEN);
