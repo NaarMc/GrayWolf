@@ -1903,6 +1903,14 @@ reaction2.on("collect", r => {
 })
 }
 });
+client.on('message', message => { 
+    if(message.content.startsWith(prefix + "st")) { 
+    client.user.setGame(argresult, "https://www.twitch.tv/idk");
+      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
+    }
+ 
+  });
+
 
 
 client.login(process.env.BOT_TOKEN);
