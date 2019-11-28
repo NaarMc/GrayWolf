@@ -1903,14 +1903,188 @@ reaction2.on("collect", r => {
 })
 }
 });
-client.on('message', message => { 
-    if(message.content.startsWith(prefix + "st")) { 
-    client.user.setGame(argresult, "https://www.twitch.tv/idk");
-      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
-    }
- 
-  });
-
+  client.on("message", function(message) {
+    var prefix = "-";
+   if(message.content.startsWith(prefix + "help")) {
+    let messageArgs = message.content.split(" ").slice(1).join(" ");
+    let messageRPS = message.content.split(" ").slice(2).join(" ");
+    let arrayRPS = ['**# - Rock**','**# - Paper**','**# - Scissors**'];
+    let result = `${arrayRPS[Math.floor(Math.random() * arrayRPS.length)]}`;
+    var RpsEmbed = new Discord.RichEmbed()
+    .setAuthor(message.author.username)
+    .setThumbnail(message.author.avatarURL)
+    .addField("Puplic | عامه","👥",true)
+    .addField("Admin | ادمنيه","👑",true)
+    .addField("Games | العاب","🎮",true)
+        .addField("BotRooms | رومات البوت","🤖",true)
+    message.channel.send(RpsEmbed).then(msg => {
+        msg.react('👥')
+        msg.react("👑")
+        msg.react("🎮")
+                msg.react("🤖")
+.then(() => msg.react('👥'))
+.then(() =>msg.react('👑'))
+.then(() => msg.react('🎮'))
+.then(() => msg.react('🤖'))
+let reaction1Filter = (reaction, user) => reaction.emoji.name === '👥' && user.id === message.author.id;
+let reaction2Filter = (reaction, user) => reaction.emoji.name === '👑' && user.id === message.author.id;
+let reaction3Filter = (reaction, user) => reaction.emoji.name === '🎮' && user.id === message.author.id;
+let reaction4Filter = (reaction, user) => reaction.emoji.name === '🤖' && user.id === message.author.id;
+let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 20000 });
+       
+let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 19000 });
+let reaction3 = msg.createReactionCollector(reaction3Filter, { time: 18000 });
+let reaction4 = msg.createReactionCollector(reaction4Filter, { time: 18000 });
+reaction1.on("collect", r => {
+  const embed = new Discord.RichEmbed()
+      .setThumbnail('https://images-ext-2.discordapp.net/external/JD7xvknBVacXHoC2re78AtJN4PUY5IjUZy1uWIqzObI/https/s3.amazonaws.com/eclincher.wp.upload/wp-content/uploads/2015/08/25155834/people-icon.png')
+      .setColor("#000000")
+      .setDescription(`
+      :busts_in_silhouette:***__اوامر عامة__***:loudspeaker: 
+**
+『-ping ====> لمعرفة سرعة اتصال البوت
+『-link ====> يسويلك رابط لمدة يوم وعدد الاستخدامات 100
+『-tag ====> لعرض الكلام بشكل جميل و كبير
+『-تقديم
+『-quran ====> لعرض 200 صفحة من القرآن الكريم
+『-perms ====> لعرض صلاحياتك
+『-topinv ====> لعرض صاحب اكثر دعوات 
+『-hypixel ====> لرؤية احصائياتك في هايبكسل
+『-contact ====> للتواصل مع صاحب البوت
+『-clan ====> لعبة الكلانات
+『-report ====> للابلاغ عن احد
+『-Minv ====> لمعرفة عدد دعواتك
+『-color ====> لوضع لون لك
+『-emojilist ====> لرؤية قائمة اموجيات السيرفر
+『-date ====> يعرضلك تاريخ اليوم
+『-email ====> يعطيك ايميل و باس عشوائي
+『-gRole Role name ====> يوريك معلومات رتبة باسمها او الايدي حقها
+『-bot ====> يعرض لك كل معلومات البوت
+『-say ====> يكرر الكلام الي تكتبو
+『-savatar ====> صورة السيرفر
+『-id ====> معلومات عنك
+『-new ====> يفتح لك تكت
+『-avatar ====> صورتك او صورة الي تمنشنو
+『-embed ====> يكرر الي تقولو بشكل حلو
+『-rules ====> يعرض لك قوانين السيرفر
+『-v2min ====> لصنع روم صوتي مؤقت
+『-inv ====> لدعوة البوت الى سيرفرك
+**
+`)
+   message.author.sendEmbed(embed)
+      message.reply('تم ارسالك بلخاص')
+})
+reaction2.on("collect", r => {
+      const embed = new Discord.RichEmbed()
+  .setThumbnail('https://cdn.discordapp.com/attachments/553862087382925313/556036868492230667/logo-admin-png-4.png')
+      .setColor("#000000")
+      .setDescription(`
+      :key:***__اوامر ادارية__***:crown: 
+**
+『-bc ====> رسالة لجميع اعضاء السيرفر
+『-bk ====> رسالة لجميع اعضاء السيرفر 2
+『-rolebc ====> رسالة لرتبة معينة
+『-setbot ====> لعمل روم صوتي بعدد البوتات في السيرفر
+『-bans ====> الاعضاء المبندين من سيرفرك
+『-setmember ====> لعمل روم صوتي بعدد اعضاء السيرفر
+『-cto ====> تغير الكلام في اعلى الروم
+『-leave ====> لطرد البوت من سيرفرك
+『-setMedia ====> لتحديد روم الصور
+『-ranks ====> يوريك رتب السيرفر
+『-vonline ====> لعمل روم صوتي اونلاين
+『-schannel ====> اضهار الشات المخفية
+『-sr Exemple ====> لتغيير اسم السيرفر
+『-kv ====> لطرد عضو من روم صوتي
+『-hchannel ====> اخفاء الشات
+『-talk ====> للتكلم بصفة البوت
+『-count ====> عدد اعضاء السيرفر
+『-setlog ====> لصنع روم اللوج
+『-server ====> يعرض لك معلومات عن السيرفر
+『-movall ====> لسحب الجميع الى رومك
+『-sug ====> suggestions لصنع اقتراح لازم روم 
+『-bs ====> لمعرفة سيرفرات البوت
+『-rooms ====> لرؤية رومات السيرفر
+『-dc ====> مسح كل الرومات
+『-dr ====>  فوق كل الرانكات
+『-allbots ====> يوريك كل البوتات في سيرفرك
+『-move ====> لسحب عضو الى روم صوتية
+『-giveaway ====> لصنع جيفواي
+『-role @mention rolename ====> لأعطاء رتبة لعضو معين
+『-role all rolename ====> لأعطاء رتبة للجميع
+『-role humans rolename ====> لأعطاء رتبة للاشخاص فقط
+『-role bots rolename ====> لأعطاء رتبة لجميع البوتات
+『-members ====> حالات اعضاء السيرفر
+『-send ====> ارسال رسالة لشخص المنشن
+『-clr <numbr> ====> مسح الشات بعدد
+『-clear ====> مسح الشات
+『-mute @user <reason> ====> اعطاء العضو ميوت لازم رتبة <Muted>
+『-unmute @user ====> لفك الميوت عن الشخص 
+『-kick @user <reason> ====> طرد الشخص من السيرفر
+『-ban @user <reason> ====> حضر الشخص من السيرفر
+『-unban @user ====> لفك حضر الشخص من السيرفر
+『-mutechannel ====> تقفيل الشات
+『-unmutechannel ====> فتح الشات
+『-ct <name> ====> انشاء شات
+『-cv <name> ====> انشاء رووم فويس
+**
+`)
+   message.author.sendEmbed(embed)
+      message.reply('تم ارسالك بلخاص')
+})
+reaction3.on("collect", r => {
+  const embed = new Discord.RichEmbed()
+  .setThumbnail('https://images-ext-1.discordapp.net/external/4IGqoA1bqVqu_o2I-jY51fqJFy2S8f8NrzcnzxhFtVU/http/reli.sh/wp-content/themes/relish/assets/img/services/icon-games.png')
+      .setColor("#000000")
+      .setDescription(`
+       :video_game: ***__اوامر العاب__***:game_die:
+ **       
+『-8ball ====> لعبه تسال البوت اسال  وهو يجاوب عنها
+『-cuttweet ====> لعبة كت تويت
+『-هل تعلم
+『-cal ====> ألة حاسبة
+『-za5 ====> لزخرفة ما تقول
+『-cats ====> قطط كيوت
+『-love ====> يعطيك اقوال عن الحب 
+『-حكم
+『-جمع
+『-طرح
+『-ضرب
+『-فواكه
+『-فكك
+『-sara7a ====> لعبة صراحة
+『-roll ====> قرعة
+『-xo ====> xo لعبة 
+『-نكت مضحكه ====> نكت
+『-kiss ====> ما يحتاج شرح ههههه
+『-marry ====> لعبة الزواج
+『-hack ====> لعبه هاك
+『-kill ====> لعبة قتل
+『-quas ====> اسئلة عامة
+『-لعبة مريم ====> مريم
+『-عواصم
+『-يعطيك عقابات قاسية ====> عقاب
+`)
+   message.author.sendEmbed(embed)
+   message.reply('تم ارسالك بلخاص')
+})
+reaction3.on("collect", r => {
+  const embed = new Discord.RichEmbed()
+      .setColor("#000000")
+      .setDescription(`
+            -=- الرومات اللازمة للبوت -=-
+『=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.』
+تحتاج رومات بالاسماء التالية
+Weclom روم الترحيب
+suggestions روم الاقتراحات
+'روم 'التقديمات 
+روم التوديع leave
+『=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.』
+`)
+   message.author.sendEmbed(embed)
+})
+    })
+}
+});
 
 
 client.login(process.env.BOT_TOKEN);
