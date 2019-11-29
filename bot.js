@@ -2065,7 +2065,11 @@ if (message.content.startsWith(prefix + 'setgame')) {
 
 
 });
-
+client.on('message', msg => {
+  if (msg.content === '-colors') {
+    msg.reply('https://cdn.discordapp.com/attachments/644821003716919297/649981895873921045/Sans_titre.png');
+  }
+});
 
 
 client.login(process.env.BOT_TOKEN);
