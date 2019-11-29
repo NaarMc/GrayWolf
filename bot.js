@@ -364,7 +364,7 @@ client.on('message', message => {
         if (!message.guild) return message.reply('**:x: This Commands Just In Server**').then(v => {v.react('❌')})
         var args =  message.content.split(' ').slice(1).join(' ')
         if (!args) return message.reply('Type You Suggestion').then(c => {c.delete(5000)})
-        let Room = message.guild.channels.find(`name`, "اقتراحات")
+        let Room = message.guild.channels.find(`name`, "الاقتراحات")
         if (!Room) return message.channel.send("Can't find suggestions channel.").then(d => d.react('❌'))
         let embed = new Discord.RichEmbed()
         .setColor('RANDOM')
@@ -381,7 +381,7 @@ client.on('message', message => {
     }
 });
 client.on("message", message => { 
-  if(message.content.startsWith("$apply")) {
+  if(message.content.startsWith("-apply")) {
         if(!message.channel.guild) return;
                 if(message.author.bot) return;
         let channel = message.guild.channels.find("name", "apply-of-staff")
@@ -458,7 +458,7 @@ client.on("message", message => {
 }
         });
 client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', 'ۛۛا̍ڷــڜــٰا̍ٺ-ا̍ڷــ؏ــٰٱ̍مۘ');
+    let channel = member.guild.channels.find('name', 'ۛۛالشات-العام');
     let memberavatar = member.user.avatarURL
       if (!channel) return;
     let embed = new Discord.RichEmbed()
@@ -485,7 +485,7 @@ client.on('guildMemberAdd', member => {
         .setColor('RED')
         .setFooter(`==== نــتــمــنــآ لــكــم آســتــمـــتــآع ====`, 'https://cdn.discordapp.com/attachments/397818254439219217/399292026782351381/shy.png')
    
-    var channel =member.guild.channels.find('name', 'ۛۛا̍ڷــڜــٰا̍ٺ-ا̍ڷــ؏ــٰٱ̍مۘ')
+    var channel =member.guild.channels.find('name', 'ۛۛالشات-العام')
     if (!channel) return;
     channel.send({embed : embed});//LUXY
     })
