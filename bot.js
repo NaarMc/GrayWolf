@@ -2020,72 +2020,6 @@ reaction3.on("collect", r => {
 }
 });
 client.on('message', message => {
-  if (!message.content.startsWith(prefix)) return;
-  var args = message.content.split(' ').slice(1);
-  var argresult = args.join(' ');
-  if (message.author.id !== "460389855382470662") return;
-
-  
-  if (message.content.startsWith(prefix + 'setwatch')) {
-  client.user.setActivity(argresult, {type: 'WATCHING'})
-     console.log('test' + argresult);
-    message.channel.sendMessage(`Watch Now: **${argresult}`)
-} 
-
- 
-  if (message.content.startsWith(prefix + 'setlis')) {
-  client.user.setActivity(argresult, {type: 'LISTENING'})
-     console.log('test' + argresult);
-    message.channel.sendMessage(`LISTENING Now: **${argresult}`)
-} 
-
-
-if (message.content.startsWith(prefix + 'setname')) {
-  client.user.setUsername(argresult).then
-      message.channel.sendMessage(`Username Changed To **${argresult}**`)
-  return message.reply("You Can change the username 2 times per hour");
-} 
-
-if (message.content.startsWith(prefix + 'setavatar')) {
-  client.user.setAvatar(argresult);
-   message.channel.sendMessage(`Avatar Changed Successfully To **${argresult}**`);
-}
-
-if (message.content.startsWith(prefix + 'setT')) {
-  client.user.setGame(argresult, "https://www.twitch.tv/peery13");
-     console.log('test' + argresult);
-    message.channel.sendMessage(`Streaming: **${argresult}`)
-} 
-if (message.content.startsWith(prefix + 'setgame')) {
-  client.user.setGame(argresult);
-     console.log('test' + argresult);
-    message.channel.sendMessage(`Playing: **${argresult}`)
-} 
-
-
-
-});
-client.on('message', msg => {
-  if (msg.content === '-colors') {
-    msg.reply('https://cdn.discordapp.com/attachments/644821003716919297/649981895873921045/Sans_titre.png');
-  }
-});
-  client.on("message",  message => {
-         let args = message.content.split(' ').slice(1);
-    if(message.content.startsWith(prefix + 'nickname')) {
-        if (!message.member.hasPermission("MANAGE_NICKNAMES")) {
-            message.channel.send("حط الاسم")
-        } else {
-            if (!message.guild.member(client.user).hasPermission('MANAGE_NICKNAMES')) return message.reply(' :x:البوت ما عنده خاصية MANAGE_NICKNAMES.').catch(console.error);
-            let changenick = message.mentions.users.first();
-            let username = args.slice(1).join(' ')
-            if (username.length < 1) return message.reply('حط الاسم').catch(console.error);
-            if (message.mentions.users.size < 1) return message.author.send('You must mention a user to change their nickname. :x:').catch(console.error);
-            message.guild.member(changenick.id).setNickname(username);
-            message.channel.send("تم تغيير الاسم الى: " + changenick + "")
-        }
-    }});
-client.on('message', message => {
 
 
   if (!message.content.startsWith(prefix)) return;
@@ -2095,34 +2029,34 @@ client.on('message', message => {
 
 
 if (message.content.startsWith(prefix + 'playing')) {
-if (message.author.id !== '639105286266683392','639105286266683392') return message.reply(' هذا الأمر فقط لصاحب البوت و شكراًً ')
+if (message.author.id !== '407695930750402561','294980175253209089') return message.reply(' هذا الأمر فقط لصاحب البوت و شكراًً ')
 client.user.setGame(argresult);
     message.channel.sendMessage(**${argresult}** : تم تغيير الحالة)
 } 
 
  
 if (message.content.startsWith(prefix + 'streem')) {
-if (message.author.id !== '639105286266683392','639105286266683392') return message.reply(' هذا الأمر فقط لصاحب البوت و شكراًً ')
+if (message.author.id !== '407695930750402561','294980175253209089') return message.reply(' هذا الأمر فقط لصاحب البوت و شكراًً ')
 client.user.setGame(argresult, "http://twitch.tv/y04zgamer%22);
     message.channel.sendMessage(**${argresult}** :تم تغيير الحالة الى ستريمنج)
 } else
 
 if (message.content.startsWith(prefix + 'name')) {
-if (message.author.id !== '639105286266683392','639105286266683392') return message.reply(' هذا الأمر فقط لصاحب البوت و شكراًً ')
+if (message.author.id !== '407695930750402561','294980175253209089') return message.reply(' هذا الأمر فقط لصاحب البوت و شكراًً ')
   client.user.setUsername(argresult).then
       message.channel.sendMessage(**${argresult}** : تم تغير الأسم)
   return message.reply("لا تستطيع تغير الأسم الا بعد ساعتين");
 } else
 
 if (message.content.startsWith(prefix + 'image')) {
-if (message.author.id !== '639105286266683392','639105286266683392') return message.reply(' هذا الأمر فقط لصاحب البوت و شكراًً ')
+if (message.author.id !== '407695930750402561','294980175253209089') return message.reply(' هذا الأمر فقط لصاحب البوت و شكراًً ')
 client.user.setAvatar(argresult);
     message.channel.sendMessage(**${argresult}** : تم تغير صورة البوت);
 } else
 
 
 if (message.content.startsWith(prefix + 'watching')) {
-if (message.author.id !== '639105286266683392','639105286266683392') return message.reply(' هذا الأمر فقط لصاحب البوت و شكراًً ')
+if (message.author.id !== '407695930750402561','294980175253209089') return message.reply(' هذا الأمر فقط لصاحب البوت و شكراًً ')
     client.user.setActivity(argresult, {type : 'watching'});
  message.channel.sendMessage(**${argresult}** : تم تغيير الووتشينق الى)
 }
