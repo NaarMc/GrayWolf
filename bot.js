@@ -2070,6 +2070,20 @@ client.on('message', msg => {
     msg.reply('https://cdn.discordapp.com/attachments/644821003716919297/649981895873921045/Sans_titre.png');
   }
 });
-
+  client.on("message",  message => {
+         let args = message.content.split(' ').slice(1);
+    if(message.content.startsWith(prefix + 'nickname')) {
+        if (!message.member.hasPermission("MANAGE_NICKNAMES")) {
+            message.channel.send("حط الاسم")
+        } else {
+            if (!message.guild.member(client.user).hasPermission('MANAGE_NICKNAMES')) return message.reply(' :x:البوت ما عنده خاصية MANAGE_NICKNAMES.').catch(console.error);
+            let changenick = message.mentions.users.first();
+            let username = args.slice(1).join(' ')
+            if (username.length < 1) return message.reply('حط الاسم').catch(console.error);
+            if (message.mentions.users.size < 1) return message.author.send('You must mention a user to change their nickname. :x:').catch(console.error);
+            message.guild.member(changenick.id).setNickname(username);
+            message.channel.send("تم تغيير الاسم الى: " + changenick + "")
+        }
+    }});
 
 client.login(process.env.BOT_TOKEN);
