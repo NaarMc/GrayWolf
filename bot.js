@@ -2074,7 +2074,6 @@ client.on('message', msg => {
  
         // Prefix
      
-        // Example: Fetching Balance
         if (message.content.toUpperCase() === `${prefix}CREDITS`) {
  
             money.fetchBal(message.author.id).then((i) => { // money.fetchBal grabs the userID, finds it, and puts it into 'i'.
@@ -2093,7 +2092,6 @@ client.on('message', msg => {
  
         }
  
-        // Example: Removing Money From A User
         if (message.content.toUpperCase() === `${prefix}PAYFINE`) {
  
             money.updateBal(message.author.id, -500).then((i) => { // Since the 'value' is -500, it will 'add' -500, making the bal $500 lower.
@@ -2102,7 +2100,6 @@ client.on('message', msg => {
  
         }
  
-        // Example: Getting a daily reward
         if (message.content.toUpperCase() === prefix + `DAILY`) {
 
                 if (money[message.author.username + message.guild.name] != moment().format('L')) {
