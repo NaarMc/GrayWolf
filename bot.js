@@ -2072,8 +2072,7 @@ client.on('message', msg => {
 });
 client.on('message', message => {
     if (message.content === "CubeMc") {
-    msg.reply('');
-        setInterval(function(){
+    msg.reply('h');
         message.edit('**C**')    
         message.edit('**Cu**')    
         message.edit('**Cub**')
