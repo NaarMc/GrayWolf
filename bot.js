@@ -2070,6 +2070,25 @@ client.on('message', msg => {
     msg.reply('https://cdn.discordapp.com/attachments/644821003716919297/649981895873921045/Sans_titre.png');
   }
 });
-
+client.on('message', message => {
+    
+    if (message.content === "CubeMc") {
+        setInterval(function(){
+        message.edit('**C**')    
+        message.edit('**Cu**')    
+        message.edit('**Cub**')
+        message.edit('**Cube**')
+        message.edit('**CubeM P**')
+        message.edit('**CubeMc**')
+        message.edit('**CubeM*')
+        message.edit('**Cube**')
+        message.edit('**Cub **')
+        message.edit('**Cu**')
+        message.edit('**C**')
+        message.edit('****')
+        }, 1000)
+    }
+    
+})
 
 client.login(process.env.BOT_TOKEN);
