@@ -2070,62 +2070,6 @@ client.on('message', msg => {
     msg.reply('https://cdn.discordapp.com/attachments/644821003716919297/649981895873921045/Sans_titre.png');
   }
 });
-    client.on('message', message => {
- 
-     
-        if (message.content.toUpperCase() === `${prefix}CREDITS`) {
- 
-            money.fetchBal(message.author.id).then((i) => { // money.fetchBal grabs the userID, finds it, and puts it into 'i'.
-                message.channel.send(`**Balance:** ${i.money}`);
-            })
- 
- 
-        }
- 
-        if (message.content.toUpperCase() === `${prefix}PAYYOU`) {
-
- //           money.updateBal(message.author.id, 1000000 /* Value *///) //.then((i) => { // money.updateBal grabs the (userID, value) value being how much you want to add, and puts it into 'i'.
-          /*       message.channel.send(`**You got $1000000!**\n**New Balance:** ${i.money}`);
-            })
- 
-        }
- 
-        if (message.content.toUpperCase() === `${prefix}PAYFINE`) {
- 
-            money.updateBal(message.author.id, -500).then((i) => { // Since the 'value' is -500, it will 'add' -500, making the bal $500 lower.
-                message.channel.send(`**You paid your fine of $500!**\n**New Balance:** ${i.money}`);
-            })
- 
-        }
- 
-        if (message.content.toUpperCase() === prefix + `DAILY`) {
-
-                if (money[message.author.username + message.guild.name] != moment().format('L')) {
-                    money[message.author.username + message.guild.name] = moment().format('L')
-                    money.updateBal(message.author.id, 500 ,200).then((i) => { // The daily ends of the day, so everyday they can get a daily bonus, if they missed it, they can't get it back again.
-                        message.channel.send({embed: {
-                            color: 3447003,
-                            description: 'Recieved your **$500** \`^daily`\. I think you should check \`^credits\`.',
-                            author: {
-                                name: `${message.author.username}#${message.author.discriminator}`,
-                                icon_url: message.author.avatarURL 
-                            }
-                        }});
-                    })
-                } else {
-                    message.channel.send({embed: {
-                        color: 3447003,
-                        description: 'You already recieved your \`^daily`\. Check later **' + moment().endOf('day').fromNow() + '**.', // When you got your daily already, this message will show up.
-                        author: {
-                            name: `${message.author.username}#${message.author.discriminator}`,
-                            icon_url: message.author.avatarURL 
-                        }
-                    }});
-                }
-            }
- 
- 
-    });
 
 
 client.login(process.env.BOT_TOKEN);
