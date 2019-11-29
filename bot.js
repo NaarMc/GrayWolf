@@ -2072,7 +2072,6 @@ client.on('message', msg => {
 });
     client.on('message', message => {
  
-        // Prefix
      
         if (message.content.toUpperCase() === `${prefix}CREDITS`) {
  
@@ -2083,7 +2082,6 @@ client.on('message', msg => {
  
         }
  
-        // Example: Adding Money To A User
         if (message.content.toUpperCase() === `${prefix}PAYYOU`) {
 
  //           money.updateBal(message.author.id, 1000000 /* Value *///) //.then((i) => { // money.updateBal grabs the (userID, value) value being how much you want to add, and puts it into 'i'.
