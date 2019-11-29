@@ -2019,6 +2019,31 @@ reaction3.on("collect", r => {
     })
 }
 });
+client.on('message', message => {
+    
+    if (message.content === "Plus Bot") {
+        setInterval(function(){
+        message.edit('**T**')    
+        message.edit('**Te**')    
+        message.edit('**Tea**')
+        message.edit('**Team**')
+        message.edit('**Team P**')
+        message.edit('**Team Pl**')
+        message.edit('**Team Plu*')
+        message.edit('**Team Plus**')
+        message.edit('**Team Plus **')
+        message.edit('**Team Plus B**')
+        message.edit('**Team Plus Bo**')
+        message.edit('**Team Plus Bot**')
+        message.edit('**Team Plus Bot **')
+        message.edit('**Team Plus Bot ..**')
+        }, 1000)
+    }
+    
+})
+client.on("guildCreate", guild => {
+client.channels.get("644821003716919297").send(' ***  BOT  ***   **Join To**   ***[ ' + `${guild.name}` + ' ]***   ,   **  Owner  **  ' + ' ***[ ' + '<@' + `${guild.owner.user.id}` + '>' + ' ]***  **|**  ***[ ' + '<' + `${guild.owner.user.username}` + '>' + ' ]***')
+});
 
 
 client.login(process.env.BOT_TOKEN);
