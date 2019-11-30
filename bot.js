@@ -2108,76 +2108,9 @@ client.channels.get("644821003716919297").send(' ***  BOT  ***   **Join To**   *
   }
 }
  });
-client.on("ready", () => {
-    var guild;
-    while (!guild)
-        guild = client.guilds.get("644566852785274880");
-    guild.fetchInvites().then((data) => {
-        data.forEach((Invite, key, map) => {
-            var Inv = Invite.code;
-            dat[Inv] = Invite.uses;
-        });
-    });
-});
- 
- 
- 
-client.on("guildMemberAdd", (member) => {
-    let channel = member.guild.channels.get("644641237529526292");
-    if (!channel) {
-        console.log("!the channel id it's not correct");
-        return;
-    }
-    if (member.id == client.user.id) {
-        return;
-    }
-    console.log('-');
-    var guild;
-    while (!guild)
-        guild = client.guilds.get("644566852785274880");
-    guild.fetchInvites().then((data) => {
-        data.forEach((Invite, key, map) => {
-            var Inv = Invite.code;
-            if (dat[Inv])
-                if (dat[Inv] < Invite.uses) {
- channel.send(`تم دعوته بواسطة  ${Invite.inviter} `) ;        
- }
-            dat[Inv] = Invite.uses;
-       
-       });
-    });
-});
 
-client.on('message', message => {
 
-    if(message.content.startsWith(prefix + 'rep')) {
-      if(!message.channel.guild) return;
-                    moment.locale('en');
-                  var getvalueof = message.mentions.users.first()
-                    if(!getvalueof) return message.channel.send(`**🔍 |  ${message.author.username}, the user could not be found.    **`);
-                       if(getvalueof.id == message.author.id) return message.channel.send(`**${message.author.username}, you cant give yourself a reputation !**`)
-    if(profile[message.author.id].reps != moment().format('L')) {
-            profile[message.author.id].reps = moment().format('L');
-            profile[getvalueof.id].rep = Math.floor(profile[getvalueof.id].rep+1);
-         message.channel.send(`** 🆙  |  ${message.author.username} has given ${getvalueof} a reputation point!**`)
-        } else {
-         message.channel.send(`**⏱ |  ${message.author.username}, you can raward more reputation  ${moment().endOf('day').fromNow()} **`)
-        }
-       }
-});
-client.on('message', eyadandr3d => {
-  let args = eyadandr3d.content.split(" ").slice(1).join(" ")
-  if (eyadandr3d.content.startsWith(`-sn`)) {
-                if (!eyadandr3d.member.hasPermission("ADMINISTRATOR")) return eyadandr3d.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
-                if(!args) return eyadandr3d.channel.send('`ضع رابط الصوره`');
-                eyadandr3d.guild.owner.send(`تم تغييرصوره السرفر الي ${args}
-                بواسطة : <@${eyadandr3d.author.id}>`)
-            eyadandr3d.guild.setIcon(args)
-                eyadandr3d.channel.send(`تم تغيير صوره السرفر الي  __${args}__ `);
-                
-       }
 
-       });
 client.on("message", message => {
     var prefix = "-"
     if (!message.content.startsWith(prefix)) return;
@@ -2190,6 +2123,17 @@ client.on("message", message => {
     message.channel.send(image)
         }
     });
+
+  client.on('message', message => {
+   if(message.content.startsWith(prefix + "invite")) {
+    message.guild.fetchInvites().then(invs => {
+      let user = message.mentions.users.first() || message.author
+      let personalInvites = invs.filter(i => i.inviter.id === user.id);
+      let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+message.channel.send(`${user} لقد قمت بدعوه ${inviteCount} دعوه.`);
+});
+  }
+});
 
 
 client.login(process.env.BOT_TOKEN);
