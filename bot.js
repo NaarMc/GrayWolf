@@ -2147,6 +2147,8 @@ client.on("guildMemberAdd", (member) => {
        });
     });
 });
-
+bot.on('guildMemberAdd', (member) => {
+member.addRole(member.guild.roles.find('name', Member));
+});
 
 client.login(process.env.BOT_TOKEN);
