@@ -2134,7 +2134,56 @@ message.channel.send(`${user} لقد قمت بدعوه ${inviteCount} دعوه.`
 });
   }
 });
+client.on('message' , async (message) => {
+
+    if(message.content.startsWith(prefix + "topinvite")) {
+
+  let invites = await message.guild.fetchInvites();
+
+    invites = invites.array();
+
+    arraySort(invites, 'uses', { reverse: true });
+
+    let possibleInvites = [['الدعوات', 'الاشخاص']];
+    invites.forEach(i => {
+      possibleInvites.push([i.inviter.username , i.uses]);
+    })
+    const embed = new Discord.RichEmbed()
+    .setColor(0x7289da)
+    .setTitle("دعوات السيرفر")
+    .addField(' المتصدرين' , `${table.table(possibleInvites)}`)
+
+    message.channel.send(embed)
+    }
+});
+let bane = JSON.parse(fs.readFileSync("./bcer.json", "utf8"));
+let banse = new Set();
+client.on('guildBanAdd', function(guild) {
+  guild.fetchAuditLogs().then(logs => {
+    const ser = logs.entries.first().executor;
+    if(!bane[ser.id+guild.id]) bane[ser.id+guild.id] = {
+      bans: 0
+    }
+    let boner = bane[ser.id+guild.id]
+banse.add(ser.id)
+boner.bans = Math.floor(boner.bans+1)
 
 
+setTimeout(() => {
+  boner.bans = 0
+  banse.delete(ser.id)
+},8000)
+
+if(boner.bans > 3) {
+  let roles = guild.members.get(ser.id).roles.array()
+guild.members.get(ser.id).removeRoles(roles)
+}
+
+    })
+    fs.writeFile('./bcer.json', JSON.stringify(bane), (err) => {
+if (err) console.error(err);
+})
+
+})
 
 client.login(process.env.BOT_TOKEN);
