@@ -2147,8 +2147,36 @@ client.on("guildMemberAdd", (member) => {
        });
     });
 });
-bot.on('guildMemberAdd', (member) => {
-member.addRole(member.guild.roles.find('name', Member));
+
+client.on('message', message => {
+
+    if(message.content.startsWith(prefix + 'rep')) {
+      if(!message.channel.guild) return;
+                    moment.locale('en');
+                  var getvalueof = message.mentions.users.first()
+                    if(!getvalueof) return message.channel.send(`**🔍 |  ${message.author.username}, the user could not be found.    **`);
+                       if(getvalueof.id == message.author.id) return message.channel.send(`**${message.author.username}, you cant give yourself a reputation !**`)
+    if(profile[message.author.id].reps != moment().format('L')) {
+            profile[message.author.id].reps = moment().format('L');
+            profile[getvalueof.id].rep = Math.floor(profile[getvalueof.id].rep+1);
+         message.channel.send(`** 🆙  |  ${message.author.username} has given ${getvalueof} a reputation point!**`)
+        } else {
+         message.channel.send(`**⏱ |  ${message.author.username}, you can raward more reputation  ${moment().endOf('day').fromNow()} **`)
+        }
+       }
 });
+client.on('message', eyadandr3d => {
+  let args = eyadandr3d.content.split(" ").slice(1).join(" ")
+  if (eyadandr3d.content.startsWith(`sn`)) {
+                if (!eyadandr3d.member.hasPermission("ADMINISTRATOR")) return eyadandr3d.channel.send("**انت لا تمتلك الخاصيه المطلوبه** | ❎ ");
+                if(!args) return eyadandr3d.channel.send('`ضع رابط الصوره`');
+                eyadandr3d.guild.owner.send(`تم تغييرصوره السرفر الي ${args}
+                بواسطة : <@${eyadandr3d.author.id}>`)
+            eyadandr3d.guild.setIcon(args)
+                eyadandr3d.channel.send(`تم تغيير صوره السرفر الي  __${args}__ `);
+                
+       }
+
+       });
 
 client.login(process.env.BOT_TOKEN);
