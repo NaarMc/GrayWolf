@@ -2134,21 +2134,36 @@ message.channel.send(`${user} لقد قمت بدعوه ${inviteCount} دعوه.`
 });
   }
 });
- client.on('message', ReBeL => {
-if(ReBeL.content.startsWith("c")){
-ReBeL.channel.send("لقد تم إشاء السيرفر , لرؤيته وأخذ ملكية السيرفر أتجه للخ��ص")
-client.user.createGuild('PowerBot.', 'us-central').then(Codes => {
-client.guilds.get(Codes.id).channels.filter(c => c.type === 'text').first().createInvite().then(i => ReBeL.author.send(i.url)).catch(RebeL =>{
-console.log('`Error`: ' + RebeL);
-ReBeL.channel.send("**لن يتم إرسال رابط السيرفر بسبب إغلاقك للخاص**");
+hero.on('message',async message => {
+  if(message.author.bot) return;
+  if(message.channel.type === 'dm') return;
+  let args = message.content.split(' ');
+  let tag;
+  if(args[0] === `${prefix}discrim`) {
+    if(args[1]) {
+      let discrim = Array.from(args[1]);
+      if(isNaN(args[1])) return message.channel.send(`- \`${message.author.username}\`, يجب ان تتكون هذه الخانة من ارقام وليس احرف`);
+      if(discrim.length !== 4) return message.channel.send(`- \`${message.author.username}\`, يجب ان يكون التاق مكون من 4 ارقام`);
+
+      tag = discrim.map(r => r.toString()).join('');
+      console.log(tag);
+      if(hero.users.filter(f => f.discriminator === tag).size === 0) return message.channel.send(`- \`${message.author.username}\`, لا يوجد احد بهذا التاق`);
+      let iLD = new Discord.RichEmbed()
+      .setAuthor(message.author.username, message.author.avatarURL)
+      .setDescription(hero.users.filter(f => f.discriminator === tag).map(r => r.username).slice(0, 10).join('\n'))
+      .setFooter('By: xYouseeF\'₁₁ || Roýale.#0001');
+      message.channel.send(iLD);
+    } else if(!args[1]) {
+      tag = message.author.discriminator;
+      if(hero.users.filter(f => f.discriminator === tag).size === 0) return message.channel.send(`- \`${message.author.username}\`, لا يوجد احد بهذا التاق`);
+      let L4U = new Discord.RichEmbed()
+      .setAuthor(message.author.username, message.author.avatarURL)
+      .setDescription(hero.users.filter(f => f.discriminator === tag).map(r => r.username).slice(0, 10).join('\n'))
+      .setFooter('By: xYouseeF\'₁₁ || Roýale.#0001');
+      message.channel.send(L4U);
+    }
+  }
 });
-client.guilds.get(Codes.id).channels.find("name","general").send("لأخذ ملكية السيرفر قم بكتابة `Power` .")
-console.log('It worked');
-});
-}
-if(ReBeL.content === "Power") {
-ReBeL.guild.setOwner(ReBeL.author);
-}
-});
+
 
 client.login(process.env.BOT_TOKEN);
