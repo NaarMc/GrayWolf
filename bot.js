@@ -2134,15 +2134,7 @@ message.channel.send(`${user} لقد قمت بدعوه ${inviteCount} دعوه.`
 });
   }
 });
-const swearWords = ["كس اختك", "كل زق", "خرية", "زبلة", "كس اختك", "فاك", "فاك يو", "انيكلك", "قحبة", "كس امك", "نيك امك", "قحب"]; 
-  if( swearWords.some(word => message.content.includes(word)) ) {
-    message.reply("مَّا يَلْفِظُ مِن قَوْلٍ إِلَّا لَدَيْهِ رَقِيبٌ عَتِيدٌ").then(sentMessage =>{
-      sentMessage.delete(20000)
-    })
-    message.delete(3000)
-    client.channels.get('644821003716919297').send(message.author.toString() + "استخدم كلام لا يليق ~")
-  }
-});
+
 
 
 client.login(process.env.BOT_TOKEN);
