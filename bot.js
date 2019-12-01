@@ -2174,7 +2174,6 @@ client.on('message', message => {
     }
  
   });
-let antihack = JSON.parse(fs.readFileSync('./antihack.json' , 'utf8'));
 client.on('message', message => { 
     if(message.content.startsWith(prefix + "tAntihack")) { 
         if(!message.channel.guild) return message.reply('**This Command Only For Servers**'); 
@@ -2195,8 +2194,6 @@ client.on('message', message => {
         })
         
  
-  let banse = new Set();
-  let bane = JSON.parse(fs.readFileSync('./data1.json' , 'utf8'));
   client.on('guildBanAdd', function(guild) {
     guild.fetchAuditLogs().then(logs => {
       const ser = logs.entries.first().executor;
