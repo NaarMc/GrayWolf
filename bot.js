@@ -2138,5 +2138,25 @@ client.on('message',async Epic => {
   });
   }
 });
+client.on('message', message => { 
+    if(message.content.startsWith(prefix + "tAntihack")) { 
+        if(!message.channel.guild) return message.reply('**This Command Only For Servers**'); 
+        if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' ); 
+        if(!antihack[message.guild.id]) antihack[message.guild.id] = { 
+          onoff: 'Off'
+        } 
+          if(antihack[message.guild.id].onoff === 'Off') return [message.channel.send(`**✅ The AntiHack Is __𝐎𝐍__ !**`), antihack[message.guild.id].onoff = 'On']
+          if(antihack[message.guild.id].onoff === 'On') return [message.channel.send(`**⛔ The AntiHack Is __𝐎𝐅𝐅__ !**`), antihack[message.guild.id].onoff = 'Off']
+          fs.writeFile("./antihack.json", JSON.stringify(antihack), (err) => {
+            if (err) console.error(err)
+            .catch(err => {
+              console.error(err);
+          });
+            });
+          }
+ 
+        })
+
+
 
 client.login(process.env.BOT_TOKEN);
