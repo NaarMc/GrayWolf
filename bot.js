@@ -384,7 +384,7 @@ client.on("message", message => {
   if(message.content.startsWith("-apply")) {
         if(!message.channel.guild) return;
                 if(message.author.bot) return;
-        let channel = message.guild.channels.find("name", "apply-of-staff")
+        let channel = message.guild.channels.find("name", "ا̍ڸــٿــڦــدٻۧــمۘ")
             if(!channel) return message.reply("**لانشاء روم التقديمات !!setsubmissions من فضلك اكتب الامر**")
             if(channel) {
             message.channel.send( message.member + ', **:timer:**').then( (m) =>{
