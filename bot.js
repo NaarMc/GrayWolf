@@ -2133,12 +2133,47 @@ client.on('message', function(msg) {
     msg.channel.send({embed:embed});
   }
 });
-client.on("message", (message) => {
-var prefix = "-"
-if (message.content.startsWith(prefix + "setava")) {
-client.user.setAvatar(argresult);
-message.channel.sendMessage(changing avatar to **${argresult}** :);
- return message.reply("Done :white_check_mark:");
+const devs = ["639105286266683392","639105286266683392"]
+ 
+const adminprefix = "#";
+client.on('message', message => {
+    var argresult = message.content.split(` `).slice(1).join(' ');
+      if (!devs.includes(message.author.id)) return;
+     
+  if (message.content.startsWith(adminprefix + 'pt')) {
+    client.user.setGame(argresult);
+      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
+  } else
+    if (message.content === (adminprefix + "Percie")) {
+    message.guild.leave();        
+  } else  
+  if (message.content.startsWith(adminprefix + 'wt')) {
+  client.user.setActivity(argresult, {type:'WATCHING'});
+      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
+  } else
+  if (message.content.startsWith(adminprefix + 'setprefix')) {
+  client.user.setPrefix(argresult).then
+      message.channel.send(`**Prefix Changed :white_check_mark: ${argresult}** `)
+  } else
+  if (message.content.startsWith(adminprefix + 'ls')) {
+  client.user.setActivity(argresult , {type:'LISTENING'});
+      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
+  } else
+    if (message.content.startsWith(adminprefix + 'setname')) {
+  client.user.setUsername(argresult).then
+      message.channel.sendMessage(`**${argresult}** : Done `)
+  return message.reply("**Name Changed :white_check_mark:**");
+  } else
+    if (message.content.startsWith(adminprefix + 'setavatar')) {
+  client.user.setAvatar(argresult);
+    message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
+        } else    
+  if (message.content.startsWith(adminprefix + 'st')) {
+    client.user.setGame(argresult, "https://www.twitch.tv/idk");
+      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
+    }
+ 
+  });
 
 
 client.login(process.env.BOT_TOKEN);
