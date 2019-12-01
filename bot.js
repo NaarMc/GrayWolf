@@ -34,7 +34,6 @@ client.on('ready', () => {
 
 
 
-
  client.on("message", message => {//bc1
 
             if (message.content.startsWith(prefix + "bc1")) {
@@ -42,7 +41,7 @@ client.on('ready', () => {
   let args = message.content.split(" ").slice(1);
   var argresult = args.join(' '); 
   message.guild.members.filter(m => m.presence.status !== 'all').forEach(m => {
- m.send(`${argresult}\n  `);
+ m.send(`${argresult}\n ${m}`);
 })
  message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'all').size}\` : عدد الاعضاء المستلمين`); 
  message.delete(); 
@@ -2156,18 +2155,6 @@ client.on('message' , async (message) => {
     message.channel.send(embed)
     }
 });
-client.on("message", message => {
 
-            if (message.content.startsWith(prefix + "bc")) {
-                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
-  let args = message.content.split(" ").slice(1);
-  var argresult = args.join(' '); 
-  message.guild.members.filter(m => m.presence.status !== 'offline').forEach(m => {
- m.send(`${argresult}\n ${m}`);
-})
- message.channel.send(`\`${message.guild.members.filter(m => m.presence.status !== 'online').size}\` : عدد الاعضاء المستلمين`); 
- message.delete(); 
-};     
-});
 
 client.login(process.env.BOT_TOKEN);
