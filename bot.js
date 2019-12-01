@@ -2133,6 +2133,12 @@ client.on('message', function(msg) {
     msg.channel.send({embed:embed});
   }
 });
+client.on("message", (message) => {
+var prefix = "-"
+if (message.content.startsWith(prefix + "setava")) {
+client.user.setAvatar(argresult);
+message.channel.sendMessage(changing avatar to **${argresult}** :);
+ return message.reply("Done :white_check_mark:");
 
 
 client.login(process.env.BOT_TOKEN);
