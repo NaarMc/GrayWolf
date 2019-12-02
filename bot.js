@@ -2220,14 +2220,6 @@ client.on("raw", (packet)=> {
         }).catch(console.error)
     }).catch(console.error)
 });
-client.on("reachLimit", (limit)=> {
-  let log = limit.guild.channels.find( channel => channel.name === "log");
-  log.send(limit.user.username+"\** سيرفر بيتهكر ! ** ");
-  limit.guild.owner.send(limit.user.username+"\** سيرفرك بيتهكر ! ** ")
-  limit.member.roles.map(role => {
-    limit.member.removeRole(role.id)
-    .catch(log.send)
-  });
 
 
 client.login(process.env.BOT_TOKEN);
