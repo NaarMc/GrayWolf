@@ -2319,6 +2319,31 @@ client.on('guildMemberAdd', async function (Monster) {
       });
   })
 });
-
+bot.on("message", msg => {
+ if(msg.content.startsWith(prefix + "user")){
+    if(msg.author.bot || msg.channel.type == "dm") return;
+    let mnt = msg.mentions.users.first();
+    let user = mnt || msg.author;
+    let mem = msg.guild.member(user);
+    let mj = new Date().getTime() - mem.joinedAt.getTime();
+    let dj = mj / 1000 / 60 / 60 / 24;
+    const millis = new Date().getTime() - user.createdAt.getTime();
+    const now = new Date();
+    const createdAt = millis / 1000 / 60 / 60 / 24;
+    let userEmbed = new Discord.RichEmbed()
+    .setColor("RANDOM")
+    .setThumbnail(user.avatarURL)
+    .setAuthor(`${user.username}, User Info`)
+    .setDescription(`
+    💳 - Name \`${user.tag}\`
+    📅 - Created At \`${createdAt.toFixed(0)} Days\`
+    🗓️ - Joined At \`${dj.toFixed(0)} Days\`
+    🆔 - ID \`${user.id}\`
+    `)
+    .setFooter(msg.client.user.username,msg.client.user.avatarURL)
+    .setTimestamp()
+    msg.channel.send(userEmbed).catch(console.error);
+}
+});
 
 client.login(process.env.BOT_TOKEN);
