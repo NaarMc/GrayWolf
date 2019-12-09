@@ -2249,30 +2249,7 @@ client.on('guildMemberAdd', async function (Monster) {
       });
   })
 });
-client.on("message", msg => {
- if(msg.content.startsWith(prefix + "user")){
-    if(msg.author.bot || msg.channel.type == "dm") return;
-    let mnt = msg.mentions.users.first();
-    let user = mnt || msg.author;
-    let mem = msg.guild.member(user);
-    let mj = new Date().getTime() - mem.joinedAt.getTime();
-    let dj = mj / 1000 / 60 / 60 / 24;
-    const millis = new Date().getTime() - user.createdAt.getTime();
-    const now = new Date();
-    const createdAt = millis / 1000 / 60 / 60 / 24;
-    let userEmbed = new Discord.RichEmbed()
-    .setColor("RANDOM")
-    .setThumbnail(user.avatarURL)
-    .setAuthor(`${user.username}, User Info`)
-    .setDescription(`
-    📅 - تاريخ الدخول للديسكورد \`${createdAt.toFixed(0)} Days\`
-    🗓️ - تاريخ الدخول للسيرفر :
- \`${dj.toFixed(0)} Days\`
-    .setFooter(msg.client.user.username,msg.client.user.avatarURL)
-    .setTimestamp()
-    msg.channel.send(userEmbed).catch(console.error);
-}
-});
+
 
 client.on("guildMemberAdd", (member) => {
   let channel = member.guild.channels.get("651399315390201866");
