@@ -2319,7 +2319,7 @@ client.on('guildMemberAdd', async function (Monster) {
       });
   })
 });
-bot.on("message", msg => {
+client.on("message", msg => {
  if(msg.content.startsWith(prefix + "user")){
     if(msg.author.bot || msg.channel.type == "dm") return;
     let mnt = msg.mentions.users.first();
