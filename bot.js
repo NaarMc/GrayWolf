@@ -2482,4 +2482,17 @@ channel.send(`**invited by** ${Invite.inviter} `) ;
      });
   });
 });
+client.on("message", message => {
+if(message.content.startsWith(prefix + "setnick")){
+if(message.author.bot || message.channel.type == "dm" || !message.member.hasPermission("MANAGE_NICKNAMES") || !message.guild.member(client.user).hasPermission("MANAGE_NICKNAMES")) return;
+var user = message.mentions.members.first();
+var args = message.content.split(" ").slice(2);
+var nick = args.join(" ");
+if(!user || !args) return message.channel.send(`**• | Usage:** ${prefix}setnick \`\`@Name\`\` nickname`);
+if(message.guild.member(user.user).highestRole.position >= message.guild.member(client.user).highestRole.position) return message.channel.send(`⛔ | I cant change **${user.user.username}**'s nickname because his role highest than my role!`);
+message.guild.member(user.user).setNickname(`${nick}`).then(() => {
+message.channel.send(`Successfully changed **${user.user.username}** nickname to **${nick}**`)
+}).catch(console.error); 
+} 
+}); 
 client.login(process.env.BOT_TOKEN);
