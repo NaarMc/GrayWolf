@@ -2454,24 +2454,32 @@ hours = 12;
     });
   }
 });
-client.on('message',async message => {
-if(message.author.bot) return undefined;
-let args = message.content.split(' ');
-if(args[0].toLowerCase() == `${prefix}infoserver`) {
-Gamedig.query({type: 'minecraft',host: 'mc.hypixel.net'}).then((state) => {
-let emb = new Discord.RichEmbed()
-.setTitle(`ServerIP: \`${state.connect}\``)
-.addField("❯ Name",`» \`${state.name}\``)
-.addField("❯ Players",`» \`${state.players.length}\` \ \`${state.maxplayers}\``)
-.setColor("BLUE")
-.setTimestamp()
-.setFooter(client.user.username,client.user.avatarURL)
-console.log(state);
-message.channel.send(emb)
-}).catch((error) => {
-console.log("Server is offline");
-});    
-}
-})
 
+client.on("guildMemberAdd", (member) => {
+  let channel = member.guild.channels.get("651399315390201866");
+  if (!channel) {
+      console.log("!the channel id it's not correct");
+      return;
+  }
+  if (member.id == client.user.id) {
+      return;
+  }
+  console.log('-');
+  var guild;
+  while (!guild)
+      guild = client.guilds.get("650395225365151744");
+  guild.fetchInvites().then((data) => {
+      data.forEach((Invite, key, map) => {
+          var Inv = Invite.code;
+          if (dat[Inv])
+              if (dat[Inv] < Invite.uses) {
+                  setTimeout(function() {
+channel.send(`**invited by** ${Invite.inviter} `) ;
+                  },1500);
+}
+          dat[Inv] = Invite.uses;
+     
+     });
+  });
+});
 client.login(process.env.BOT_TOKEN);
