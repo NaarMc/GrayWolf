@@ -2345,5 +2345,25 @@ client.on("message", msg => {
     msg.channel.send(userEmbed).catch(console.error);
 }
 });
+const Gamedig = require('gamedig');
+client.on('message',async message => {
+if(message.author.bot) return undefined;
+let args = message.content.split(' ');
+if(args[0].toLowerCase() == `${prefix}infoserver`) {
+Gamedig.query({type: 'minecraft',host: 'mc.hypixel.net'}).then((state) => {
+let emb = new Discord.RichEmbed()
+.setTitle(`ServerIP: \`${state.connect}\``)
+.addField("❯ Name",`» \`${state.name}\``)
+.addField("❯ Players",`» \`${state.players.length}\` \ \`${state.maxplayers}\``)
+.setColor("BLUE")
+.setTimestamp()
+.setFooter(client.user.username,client.user.avatarURL)
+console.log(state);
+message.channel.send(emb)
+}).catch((error) => {
+console.log("Server is offline");
+});    
+}
+})
 
 client.login(process.env.BOT_TOKEN);
