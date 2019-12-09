@@ -2117,6 +2117,13 @@ client.on('message', message => {
     .setTimestamp();
     room.send(emb);
 });
+client.on('message', message => {
+    const swearWords = ["قحب", "حيوان","كلب"];
+    if( swearWords.some(word => message.content.includes(word)) ) {
+        message.delete();
+        message.author.send('Hey! That word has been banned, please don\'t use it!');
+      }
+})
 
 
 client.login(process.env.BOT_TOKEN);
