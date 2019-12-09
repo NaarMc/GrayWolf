@@ -2124,6 +2124,23 @@ client.on('message', message => {
         message.author.send('Hey! That word has been banned, please don\'t use it!');
       }
 })
-
+const ytScraper = require("yt-scraper");
+client.on('message', message => {
+    if (message.content.startsWith('-yt')) {
+    ytScraper.channelInfo("https://www.youtube.com/channel/UCPqGuRtaKCW-5huA0ZPkBBQ?view_as=subscriber").then(data => {
+        const embed = new Discord.RichEmbed()
+        .setColor("#36393e")
+        .addField(`↬ | Channel ID`, `**${data.id}**`)
+        .addField(`↬ | Channel Name`, `**${data.name}**`)
+        .addField(`↬ | Channel Subscribers`, `**${data.subscribers}**`)
+        .addField(`↬ | Channel Views`, `**${data.views}**`)
+        .addField(`↬ | Channel Date`, `**${data.joined}**`)
+        .addField(`↬ | Channel URL`, `**${data.url}**`)
+        .addField(`↬ | Channel Description`, `**${data.description}**`)
+  message.channel.send({embed});
+ 
+    })
+}
+});
 
 client.login(process.env.BOT_TOKEN);
