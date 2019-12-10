@@ -408,7 +408,7 @@ client.on('message', message => {
     }
 }
 });
-  client.on('message', message => {
+ client.on('message', message => {
     if (message.content.startsWith("-bans")) {
         message.guild.fetchBans()
         .then(bans => message.channel.send(`${bans.size} عدد اشخاص المبندة من السيرفر `))
@@ -853,7 +853,7 @@ var prefix = "-";
 });
 client.on("message", message => { 
               var args = message.content.substring(prefix.length).split(" ");
-              if (message.content.startsWith(prefix + "clear")) {
+              if (message.content.startsWith("مسح")) {
                   if(!message.channel.guild) return message.reply('**❌ اسف لكن هذا الامر للسيرفرات فقط **');         
      if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**⚠  لا يوجد لديك صلاحية لمسح الشات**');
           var msg;
@@ -1889,28 +1889,7 @@ reaction3.on("collect", r => {
     })
 }
 });
-client.on('message', message => {
-    
-    if (message.content === "Plus Bot") {
-        setInterval(function(){
-        message.edit('**T**')    
-        message.edit('**Te**')    
-        message.edit('**Tea**')
-        message.edit('**Team**')
-        message.edit('**Team P**')
-        message.edit('**Team Pl**')
-        message.edit('**Team Plu*')
-        message.edit('**Team Plus**')
-        message.edit('**Team Plus **')
-        message.edit('**Team Plus B**')
-        message.edit('**Team Plus Bo**')
-        message.edit('**Team Plus Bot**')
-        message.edit('**Team Plus Bot **')
-        message.edit('**Team Plus Bot ..**')
-        }, 1000)
-    }
-    
-})
+
 client.on("guildCreate", guild => {
 client.channels.get("644821003716919297").send(' ***  BOT  ***   **Join To**   ***[ ' + `${guild.name}` + ' ]***   ,   **  Owner  **  ' + ' ***[ ' + '<@' + `${guild.owner.user.id}` + '>' + ' ]***  **|**  ***[ ' + '<' + `${guild.owner.user.username}` + '>' + ' ]***')
 });
@@ -2106,7 +2085,14 @@ client.on('message', message => {
         message.author.send('Hey! That word has been banned, please don\'t use it!');
       }
 })
+client.on('guildMemberAdd', async (member) => {
+    var chid = "627942666868621312"; var channel = member['guild'].channels['get'](chid); var embed = new Discord.RichEmbed().setColor('RANDOM').setImage("https://images-ext-2.discordapp.net/external/aC60oPHWWzZFtTTnkzL64JkX6SX_ofyMnjqxmCiSoDw/https/2.top4top.net/p_1225y7yza1.gif").setTitle("شكرا الانضمامك الـنـا").addField('** # ``-`` __W__elcome T__ø__ __T__oxic C__o__des 🥂 **', member['user'].username, false).setThumbnail(member['user'].avatarURL); channel ? channel['send'](embed) : false
+})
 
+
+client.on('guildMemberRemove', async (member) => {
+    var chid = "650433781408464957"; var channel = member['guild'].channels['get'](chid); var embed = new Discord.RichEmbed().setColor('RANDOM').setTitle("**الله معاك ✋🏻 😔**").addField('مع السلامه تشرفنا بك ✋🏻 😔', `:bust_in_silhouette:   تبقي\n${member.guild.members.size}`, false).setThumbnail(member['user'].avatarURL).setFooter("==== نــتــمــنــآ لــكــم آســتــمـــتــآع ====", 'https://images-ext-2.discordapp.net/external/sHotk8zNRqNc9zkBveNshZfjGbw-AwT8sqF8CBre8Tk/https/images-ext-2.discordapp.net/external/cAchUD4PPtsDJRk-PHgkx1f3gt4wxS-xYAnc68SpU4s/https/6.top4top.net/p_12250i82f1.jpg').setAuthor(member['user'].username, member['user'].avatarURL); channel ? channel['send'](embed) : false
+})
 
 
 
