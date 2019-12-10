@@ -2086,7 +2086,7 @@ client.on('message', message => {
       }
 })
 client.on('guildMemberAdd', async (member) => {
-    var chid = "650433781408464957"; var channel = member['guild'].channels['get'](chid); var embed = new Discord.RichEmbed().setColor('RANDOM').setImage("https://images-ext-2.discordapp.net/external/aC60oPHWWzZFtTTnkzL64JkX6SX_ofyMnjqxmCiSoDw/https/2.top4top.net/p_1225y7yza1.gif").setTitle("شكرا الانضمامك الـنـا").addField('** # ``-`` __W__elcome T__ø__ __T__oxic C__o__des 🥂 **', member['user'].username, false).setThumbnail(member['user'].avatarURL); channel ? channel['send'](embed) : false
+    var chid = "650433781408464957"; var channel = member['guild'].channels['get'](chid); var embed = new Discord.RichEmbed().setColor('RANDOM').setImage("https://images-ext-2.discordapp.net/external/aC60oPHWWzZFtTTnkzL64JkX6SX_ofyMnjqxmCiSoDw/https/2.top4top.net/p_1225y7yza1.gif").setTitle("شكرا الانضمامك الـنـا").addField('** # ``-`` __W__elcome T__ø__ __C__ubeMc__ 🥂 **', member['user'].username, false).setThumbnail(member['user'].avatarURL); channel ? channel['send'](embed) : false
 })
 
 
