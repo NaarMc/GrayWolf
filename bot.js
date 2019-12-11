@@ -2125,14 +2125,13 @@ client.on('message', message => {
     var embed  = new Discord.RichEmbed()
     .setAuthor(message.guild.name, message.guild.iconURL)
     .addField("**🆔 Server ID**", "**"+message.guild.id+"**",true)
-    .addField("**👑 Owned by**", "**"+message.guild.owner+"**" ,true)
-    .addField("**🌍 Others**" , "**"+message.guild.region+"**",true)
-    .addField('**💬 channels**',`**[ ${message.guild.channels.filter(m => m.type === 'text').size} ] Text **[ ${message.guild.channels.filter(m => m.type === 'voice').size} ] Voice `,true)
     .addField("**🤔 Created On**", ` ** [ ${days.toFixed(0)} ] ** Day ` ,true)
+    .addField("**👑 Owned by**", "**"+message.guild.owner+"**" ,true)
+    .addField("**👥Members**",`**${message.guild.memberCount}**`)
+    .addField('**💬 Channels**',`**[ ${message.guild.channels.filter(m => m.type === 'text').size} ] Text **[ ${message.guild.channels.filter(m => m.type === 'voice').size} ] Voice `,true)
+    .addField("**🌍 Others**" , "**"+message.guild.region+"**",true)
+
     
-    .addField("👥Members",`
-    **${message.guild.memberCount}**`)
-    .setThumbnail(message.guild.iconURL)
     .setColor('RANDOM')
     message.channel.sendEmbed(embed)
     
