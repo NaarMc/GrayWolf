@@ -2093,6 +2093,25 @@ client.on('guildMemberAdd', async (member) => {
 client.on('guildMemberRemove', async (member) => {
     var chid = "650433781408464957"; var channel = member['guild'].channels['get'](chid); var embed = new Discord.RichEmbed().setColor('RANDOM').setTitle("**الله معاك ✋🏻 😔**").addField('مع السلامه تشرفنا بك ✋🏻 😔', `:bust_in_silhouette:   تبقي\n${member.guild.members.size}`, false).setThumbnail(member['user'].avatarURL).setFooter("==== نــتــمــنــآ لــكــم آســتــمـــتــآع ====", 'https://images-ext-2.discordapp.net/external/sHotk8zNRqNc9zkBveNshZfjGbw-AwT8sqF8CBre8Tk/https/images-ext-2.discordapp.net/external/cAchUD4PPtsDJRk-PHgkx1f3gt4wxS-xYAnc68SpU4s/https/6.top4top.net/p_12250i82f1.jpg').setAuthor(member['user'].username, member['user'].avatarURL); channel ? channel['send'](embed) : false
 })
-
+client.on('message',async message => {
+if(message.author.bot) return undefined;
+if(message.content.startsWith(prefix + "roleinfo")) {
+let role1 = message.content.split(" ").slice(1).join(" ");
+let role = message.guild.roles.find('name',role1) || message.guild.roles.get(role1);
+if(!role1) return message.channel.send(`**:x: | Error , Please Type Command True Ex : \`${prefix}roleinfo [RoleName]\`**`);
+if(!role) return message.channel.send('**❌ | Error , I Can\'t Find This Role**');
+let roleinfo = new Discord.RichEmbed()
+.setAuthor(message.author.username,message.author.avatarURL)
+.setColor("BLUE")
+.addField('? Role Name',`» \`${role.name}\``,true)
+.addField('? Role ID',`» \`${role.id}\``,true)
+.addField('? Role Color',`» \`${role.hexColor}\``,true)
+.addField('? Role CreateAt',`» \`${role.createdAt.toLocaleString()}\``,true)
+.setThumbnail(message.author.avatarURL)
+.setFooter(client.user.username,client.user.avatarURL)
+.setTimestamp()
+message.channel.send(roleinfo);
+}
+});
 
 client.login(process.env.BOT_TOKEN);
