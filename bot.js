@@ -2094,21 +2094,6 @@ client.on('guildMemberRemove', async (member) => {
     var chid = "650433781408464957"; var channel = member['guild'].channels['get'](chid); var embed = new Discord.RichEmbed().setColor('RANDOM').setTitle("**الله معاك ✋🏻 😔**").addField('مع السلامه تشرفنا بك ✋🏻 😔', `:bust_in_silhouette:   تبقي\n${member.guild.members.size}`, false).setThumbnail(member['user'].avatarURL).setFooter("==== نــتــمــنــآ لــكــم آســتــمـــتــآع ====", 'https://images-ext-2.discordapp.net/external/sHotk8zNRqNc9zkBveNshZfjGbw-AwT8sqF8CBre8Tk/https/images-ext-2.discordapp.net/external/cAchUD4PPtsDJRk-PHgkx1f3gt4wxS-xYAnc68SpU4s/https/6.top4top.net/p_12250i82f1.jpg').setAuthor(member['user'].username, member['user'].avatarURL); channel ? channel['send'](embed) : false
 })
 
-client.on('message', function(msg) {
-  if(msg.content.startsWith ('-server')) {
-    if(!msg.channel.guild) return msg.reply('**:x: اسف لكن هذا الامر للاداره فقط**');         
-    let embed = new Discord.RichEmbed()
-    .setColor('RANDOM')
-.setThumbnail(msg.guild.iconURL)
-    .addField("**🆔 Server ID:**", message.guild.id,true)
-    .addField("**📅 Created On**", message.guild.createdAt.toLocaleString(),true)
-    .addField("**👑 Owned by**",`${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`)
-    .addField("**👥 Members**",`[${message.guild.memberCount}]`,true)
-    .addField('**💬 Channels **',`**${message.guild.channels.filter(m => m.type === 'text').size}**` + ' text | Voice  '+ `**${message.guild.channels.filter(m => m.type === 'voice').size}** `,true)
-    .addField("**🌍 Others **" , message.guild.region,true)
-    .addField("**🔐 Roles **",`**[${message.guild.roles.size}]** Role `,true)
-    msg.channel.send({embed:embed});
-  }
-});
+
 
 client.login(process.env.BOT_TOKEN);
