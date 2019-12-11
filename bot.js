@@ -2095,7 +2095,7 @@ client.on('guildMemberRemove', async (member) => {
 })
 client.on('message',async message => {
 if(message.author.bot) return undefined;
-if(message.content.startsWith(prefix + "roleinfo")) {
+if(message.content.startsWith(prefix + "infor")) {
 let role1 = message.content.split(" ").slice(1).join(" ");
 let role = message.guild.roles.find('name',role1) || message.guild.roles.get(role1);
 if(!role1) return message.channel.send(`**:x: | Error , Please Type Command True Ex : \`${prefix}roleinfo [RoleName]\`**`);
@@ -2113,5 +2113,26 @@ let roleinfo = new Discord.RichEmbed()
 message.channel.send(roleinfo);
 }
 });
+client.on("message", message => {
+  if(message.content.startsWith(prefix + "server")){
+      if(message.author.bot || message.channel.type == "dm") return;
+      let onlineM = message.guild.members.filter(m => m.presence.status !== "offline");
+      let verifyL = ["0", "1", "2", "3", "4"];
+      let region = {'brazil': "brazi`",'eu-central': "Central Europ`",'singapore': "Singapore",'us-central': "US Central",'sydney': "Sydney",'us-east': "US East",'us-south': "US South",'us-west': "US West",'eu-west': "Western Europe",'london': "London",'amsterdam': "Amsterdam",'hongkong': "Hong Kong",'russia': "Russia"};
+       
+      let serverEmbed = new Discord.RichEmbed()
+      .setAuthor(message.guild.name)
+      .setColor("#000000")
+      .addField(":id: Server ID:", `${message.guild.id}`, true)
+      .addField(":calendar: Created On", `${moment(message.guild.createdAt).format('D/MM/YYYY h:mm a')}`, true)
+      .addField(":crown: Owned by", `<@${message.guild.ownerID}>`, true)
+      .addField(`:busts_in_silhouette:  Members [${message.guild.memberCount}]`, `**${onlineM.size}** Online`, true)
+      .addField(`:speech_balloon: Channels [${message.guild.channels.size}]`, `**${message.guild.channels.filter(m => m.type == 'text').size}** Text || **${message.guild.channels.filter(m => m.type == 'voice').size}** Voice`, true)
+      .addField(":earth_africa: Others", `Region: ${region[message.guild.region]}\n**Verification Level**: ${verifyL[message.guild.verificationLevel]}`, true)
+      .addField(`:closed_lock_with_key:  **Roles** [${message.guild.roles.size}]`, `To see a list with all roles use **#roles**`, true)
+      message.channel.send(serverEmbed);
+ 
+  }
+})
 
 client.login(process.env.BOT_TOKEN);
