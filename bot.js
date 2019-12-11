@@ -2127,7 +2127,7 @@ client.on('message', message => {
     .addField("**🆔 Server ID**", "**"+message.guild.id+"**",true)
     .addField("**👑 Owned by**", "**"+message.guild.owner+"**" ,true)
     .addField("**🌍 Others**" , "**"+message.guild.region+"**",true)
-    .addField('**💬 channels**',`**[ text${message.guild.channels.filter(m => m.type === 'text').size} ]**`,true)[ voice${message.guild.channels.filter(m => m.type === 'voice').size} ] ** `,true)
+    .addField('**💬 channels**',`**[ text${message.guild.channels.filter(m => m.type === 'text').size} ]**`,true)
     .addField("**🤔 Created On**", ` ** [ ${days.toFixed(0)} ] ** Day ` ,true)
     
     .addField("👥Members",`
