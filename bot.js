@@ -1967,9 +1967,7 @@ client.on('guildMemberAdd', async (member) => {
 })
 
 
-client.on('guildMemberRemove', async (member) => {
-    var chid = "650433781408464957"; var channel = member['guild'].channels['get'](chid); var embed = new Discord.RichEmbed().setColor('RANDOM').setTitle("**الله معاك ✋🏻 😔**").addField('مع السلامه تشرفنا بك ✋🏻 😔', `:bust_in_silhouette:   تبقي\n${member.guild.members.size}`, false).setThumbnail(member['user'].avatarURL).setFooter("==== نــتــمــنــآ لــكــم آســتــمـــتــآع ====", 'https://images-ext-2.discordapp.net/external/sHotk8zNRqNc9zkBveNshZfjGbw-AwT8sqF8CBre8Tk/https/images-ext-2.discordapp.net/external/cAchUD4PPtsDJRk-PHgkx1f3gt4wxS-xYAnc68SpU4s/https/6.top4top.net/p_12250i82f1.jpg').setAuthor(member['user'].username, member['user'].avatarURL); channel ? channel['send'](embed) : false
-})
+
 client.on('message',async message => {
 if(message.author.bot) return undefined;
 if(message.content.startsWith(prefix + "infor")) {
@@ -2032,7 +2030,7 @@ client.on('message', message => {
                  message.channel.sendMessage("", {embed: {
                  author: {
                  },
-                 title: 'بسبب النشر ' + member.displayName + ' تم طرد',
+                 title: 'بسبب النشر ' + member.displayName + ' تم تبنيدك',
                  color: 490101,
                  }
                });
