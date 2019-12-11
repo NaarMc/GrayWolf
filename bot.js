@@ -2093,7 +2093,47 @@ client.on('guildMemberAdd', async (member) => {
 client.on('guildMemberRemove', async (member) => {
     var chid = "650433781408464957"; var channel = member['guild'].channels['get'](chid); var embed = new Discord.RichEmbed().setColor('RANDOM').setTitle("**الله معاك ✋🏻 😔**").addField('مع السلامه تشرفنا بك ✋🏻 😔', `:bust_in_silhouette:   تبقي\n${member.guild.members.size}`, false).setThumbnail(member['user'].avatarURL).setFooter("==== نــتــمــنــآ لــكــم آســتــمـــتــآع ====", 'https://images-ext-2.discordapp.net/external/sHotk8zNRqNc9zkBveNshZfjGbw-AwT8sqF8CBre8Tk/https/images-ext-2.discordapp.net/external/cAchUD4PPtsDJRk-PHgkx1f3gt4wxS-xYAnc68SpU4s/https/6.top4top.net/p_12250i82f1.jpg').setAuthor(member['user'].username, member['user'].avatarURL); channel ? channel['send'](embed) : false
 })
-
+client.on('message', message => {
+    let args = message.content.substring(PREFIX.length).split(" ");
+ 
+    switch (args[0]) {
+        case 'muted':
+            var person  = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[1]));
+            if(!person) return  message.reply("I CANT FIND THE USER " + person)
+ 
+            let mainrole = message.guild.roles.find(role => role.name === "Newbie");
+            let role = message.guild.roles.find(role => role.name === "muted");
+           
+ 
+            if(!role) return message.reply("Couldn't find the mute role.")
+ 
+ 
+            let time = args[2];
+            if(!time){
+                return message.reply("You didnt specify a time!");
+            }
+ 
+            person.removeRole(mainrole.id)
+            person.addRole(role.id);
+ 
+ 
+            message.channel.send(`@${person.user.tag} has now been muted for ${ms(ms(time))}`)
+ 
+            setTimeout(function(){
+               
+                person.addRole(mainrole.id)
+                person.removeRole(role.id);
+                console.log(role.id)
+                message.channel.send(`@${person.user.tag} has been unmuted.`)
+            }, ms(time));
+ 
+ 
+   
+        break;
+    }
+ 
+ 
+});
 
 
 client.login(process.env.BOT_TOKEN);
