@@ -1942,26 +1942,7 @@ client.on('message', message => {
     }
  
   });
-client.on('message', message => {
-    if (message.guild) return undefined;
-    var roomid = "653646496746569773";
-    var room = client.channels.get(roomid);
-    if (!room) return undefined;
-    var emb = new Discord.RichEmbed()
-    .setColor("#36393e")
-    .setAuthor(message.author.username,message.author.displayAvatarURL)
-    .setDescription(`**Message from ${message.author} in the bot dm**\n\`\`\`apache\nMessage; ${message.content}\`\`\``)
-    .setThumbnail(message.author.displayAvatarURL)
-    .setTimestamp();
-    room.send(emb);
-});
-client.on('message', message => {
-    const swearWords = ["قحب", "حيوان","كلب"];
-    if( swearWords.some(word => message.content.includes(word)) ) {
-        message.delete();
-        message.author.send('ممنوع سب تسب مرة اخرى ميوت');
-      }
-})
+
 client.on('guildMemberAdd', async (member) => {
     var chid = "650433781408464957"; var channel = member['guild'].channels['get'](chid); var embed = new Discord.RichEmbed().setColor('RANDOM').setImage("https://images-ext-2.discordapp.net/external/aC60oPHWWzZFtTTnkzL64JkX6SX_ofyMnjqxmCiSoDw/https/2.top4top.net/p_1225y7yza1.gif").setTitle("شكرا الانضمامك الـنـا").addField('** # ``-`` __W__elcome T__ø__ __C__ubeMc__ 🥂 **', member['user'].username, false).setThumbnail(member['user'].avatarURL); channel ? channel['send'](embed) : false
 })
