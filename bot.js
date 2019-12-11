@@ -1959,7 +1959,7 @@ client.on('message', message => {
     const swearWords = ["قحب", "حيوان","كلب"];
     if( swearWords.some(word => message.content.includes(word)) ) {
         message.delete();
-        message.author.send('Hey! That word has been banned, please don\'t use it!');
+        message.author.send('ممنوع سب تسب مرة اخرى ميوت');
       }
 })
 client.on('guildMemberAdd', async (member) => {
@@ -2015,5 +2015,28 @@ client.on('message', message => {
     
     }
     });
+client.on('message', message => {
+    if (message.content.includes('discord.gg')){
+                        if(!message.channel.guild) return message.reply ('')
+                    if (!message.member.hasPermissions(['MANAGE_MESSAGES'])){
+       message.channel.send('kick <@' + message.author.id + '>')
+       message.delete() 
+       }
+    }
+          if (message.content.startsWith("kick ")) {
+             if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply();
+             var member= message.mentions.members.first();
+             member.ban().then((member) => {
+                 message.channel.sendMessage("", {embed: {
+                 author: {
+                 },
+                 title: 'بسبب النشر ' + member.displayName + ' تم تبنيدك',
+                 color: 490101,
+                 }
+               });
+           }
+         ) 
+       }
+   });
 
 client.login(process.env.BOT_TOKEN);
