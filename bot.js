@@ -2093,7 +2093,7 @@ client.on('guildMemberAdd', async (member) => {
 client.on('guildMemberRemove', async (member) => {
     var chid = "650433781408464957"; var channel = member['guild'].channels['get'](chid); var embed = new Discord.RichEmbed().setColor('RANDOM').setTitle("**الله معاك ✋🏻 😔**").addField('مع السلامه تشرفنا بك ✋🏻 😔', `:bust_in_silhouette:   تبقي\n${member.guild.members.size}`, false).setThumbnail(member['user'].avatarURL).setFooter("==== نــتــمــنــآ لــكــم آســتــمـــتــآع ====", 'https://images-ext-2.discordapp.net/external/sHotk8zNRqNc9zkBveNshZfjGbw-AwT8sqF8CBre8Tk/https/images-ext-2.discordapp.net/external/cAchUD4PPtsDJRk-PHgkx1f3gt4wxS-xYAnc68SpU4s/https/6.top4top.net/p_12250i82f1.jpg').setAuthor(member['user'].username, member['user'].avatarURL); channel ? channel['send'](embed) : false
 })
-bot.on("message", msg => {
+client.on("message", msg => {
  if(msg.content.startsWith(prefix + "user")){
     if(msg.author.bot || msg.channel.type == "dm") return;
     let mnt = msg.mentions.users.first();
